@@ -86,6 +86,7 @@
             </div>
             <div id="productos" class="ctn">
                 <form method="POST">
+                    {% csrf_token %}
                     <table>
                         <tr class="examinar">
                             <td><label for="archivo">Nombre del Archivo</label></td>
@@ -93,7 +94,7 @@
                             <td class="botones"><input type="submit" name="boton" value="Examinar" /></td>
                         </tr>
                         <tr class="cargar">
-                            <td class="botones"><input type="submit" name="boton" value="Cargar" /></td>
+                            <td class="botones"><input type="submit" name="boton" value="Cargar" formaction="{%url 'importar' %}" /></td>
                         </tr>
                     </table>
                 </form>
