@@ -1,23 +1,23 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render, HttpResponse
+from django.http import HttpResponseRedirect
 from .models import *
 import csv
-
+from pathlib import Path
 # Create your views here.
 def productos(request):
-    
-    return render(request, 'productos/Productos.html')
+    mensaje = False
+    return render(request, 'productos/Productos.html', {'mensaje' : mensaje})
 
 def cargar(request):
 
     return render(request, 'productos/Productos.html')
 
 def importar(request):
+    BASE_DIR = Path(__file__).resolve().parent.parent
+    direccion = f"{BASE_DIR}\productos\static\{request.POST.get('fileupload')}"
+    with open(direccion, "r") as archivo:
 
-    nombre_archivo=("C:/Users/bryanes/Desktop/TiendaLaGenerica/productos/Productos.csv")
-
-    with open(nombre_archivo, "r") as archivo:
-    
         for linea in archivo:
             linea=linea.rstrip()
             separador=","
@@ -31,7 +31,5 @@ def importar(request):
                 precio_venta=float(lista[5])
             )
             Productos.save(productos)
-
-
-    return render(request, 'productos/Productos.html')
-
+            mensaje = True
+    return render(request, 'productos/Productos.html', {'mensaje' : mensaje})
