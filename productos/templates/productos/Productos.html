@@ -16,8 +16,8 @@
     </head>
     <body>
       <script>
-        {% if mensaje == True %}
-          alert("Se cargo correctamente el archivo")
+        {% if mensaje != None %}
+	alert("{{mensaje}}");
         {% endif %}
       </script>
         <div class="sidebar close">
