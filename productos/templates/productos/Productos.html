@@ -97,7 +97,7 @@
                         <tr class="examinar">
                             <td><label for="archivo">Nombre del Archivo</label></td>
                             <td><input type="file" id="archivo" name="fileupload" accept="text/csv" /></td>
-                            <td class="botones"><input type="submit" name="boton" value="Examinar" /></td>
+                            <td class="botones"><input type="submit" name="boton" value="Examinar" formaction = "{% url 'leer' %}" /></td>
                         </tr>
                         <tr class="cargar">
                             <td class="botones"><input type="submit" name="boton" value="Cargar" formaction="{%url 'importar' %}" /></td>

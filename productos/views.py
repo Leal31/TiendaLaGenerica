@@ -6,12 +6,26 @@ from pathlib import Path
 import os
 # Create your views here.
 def productos(request):
-    mensaje = False
+    mensaje = None
     return render(request, 'productos/Productos.html', {'mensaje' : mensaje})
 
 def cargar(request):
 
-    return render(request, 'productos/Productos.html')
+    if request.method == 'POST':
+        BASE_DIR = Path(__file__).resolve().parent.parent
+        direccion = f"{BASE_DIR}/productos/static/{request.POST.get('fileupload')}"
+        root, extension = os.path.splitext(direccion)
+        if extension == '.csv':
+            mensaje = "El archivo es valido"
+            return render(request, 'productos/Productos.html', {'mensaje' :  mensaje})
+        elif extension != '' and extension != '.csv':
+            mensaje = "El archivo no es valido"
+            return render(request, 'productos/Productos.html', {'mensaje' : mensaje})
+        elif extension == '':
+            mensaje = "No ha sido cargado ningun archivo"
+            return render(request, 'productos/Productos.html', {'mensaje' : mensaje})
+
+
 
 def importar(request):
     try:
@@ -19,7 +33,7 @@ def importar(request):
             BASE_DIR = Path(__file__).resolve().parent.parent
             direccion = f"{BASE_DIR}/productos/static/{request.POST.get('fileupload')}"
             root, extension = os.path.splitext(direccion)
-            if extension == 'csv' and extension != None:
+            if extension == '.csv':
                 with open(direccion, "r") as archivo:
 
                     for linea in archivo:
@@ -37,7 +51,7 @@ def importar(request):
                         Productos.save(productos)
                         mensaje = "El archivo fue subido correctamente"
                 return render(request, 'productos/Productos.html', {'mensaje' : mensaje})
-            elif extension != 'csv' and extension != '':
+            elif extension != '.csv' and extension != '':
                 mensaje = "El archivo no tiene una extension valida"
                 return render(request, 'productos/Productos.html', {'mensaje' : mensaje})
             else:
