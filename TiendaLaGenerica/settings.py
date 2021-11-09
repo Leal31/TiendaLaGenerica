@@ -79,9 +79,21 @@ WSGI_APPLICATION = 'TiendaLaGenerica.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'tienda',
+        'NAME': 'main',
         'HOST' : '127.0.0.1',
         'PORT' : '27017',
+    },
+    'login' : {
+        'ENGINE' : 'djongo',
+        'NAME' : 'login',
+        'HOST' : '127.0.0.1',
+        'PORT' : '27017'
+    },
+    'productos' : {
+        'ENGINE' : 'djongo',
+        'NAME' : 'productos',
+        'HOST' : '127.0.0.1',
+        'PORT' : '27017'
     }
 }
 

@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from .models import *
 from pathlib import Path
 import os
+
 # Create your views here.
 def productos(request):
     mensaje = None
