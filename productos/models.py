@@ -10,3 +10,6 @@ class Productos(models.Model):
     precio_compra=models.FloatField()
     ivacompra=models.FloatField()
     precio_venta=models.FloatField()
+
+    def __str__(self):
+        return f'Producto {self.codigo_producto}'

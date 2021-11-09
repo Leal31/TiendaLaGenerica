@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'login.apps.LoginConfig',
     'productos.apps.ProductosConfig',
     'principal.apps.PrincipalConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
