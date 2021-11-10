@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'login.apps.LoginConfig',
     'productos.apps.ProductosConfig',
+    'clientes.apps.ClientesConfig',
     'principal.apps.PrincipalConfig',
     'rest_framework',
 ]
@@ -95,12 +96,19 @@ DATABASES = {
         'NAME' : 'productos',
         'HOST' : '127.0.0.1',
         'PORT' : '27017'
-    }
+    },
+    'clientes' : {
+        'ENGINE' : 'djongo',
+        'NAME' : 'clientes',
+        'HOST' : '127.0.0.1',
+        'PORT' : '27017'
+    },
 }
 
 DATABASE_ROUTERS = [
     'login.routers.loginRouter',
     'productos.routers.productosRouter',
+    'clientes.routers.clientesRouter',
     ]
 
 # Password validation
