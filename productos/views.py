@@ -4,11 +4,6 @@ from django.http import HttpResponseRedirect
 from .models import *
 from pathlib import Path
 import os
-from rest_framework.response import Response
-from rest_framework import viewsets
-from .serializers import *
-from rest_framework import status
-from django.http import Http404
 
 # Create your views here.
 def productos(request):
@@ -65,11 +60,3 @@ def importar(request):
     except IsADirectoryError:
         mensaje = "El archivo no ha sido cargado"
         return render(request, 'productos/Productos.html', {'mensaje' : mensaje})
-
-
-class ProductoCrud(viewsets.ModelViewSet):
-    queryset = Productos.objects.all()
-    serializer_class = ProductoSerializers
-
-
-
