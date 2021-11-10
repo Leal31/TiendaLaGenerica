@@ -3,7 +3,6 @@ from . import views
 from .api import router
 urlpatterns = [
     path('', views.productos, name = 'productos'),
-    path('leercsv', views.cargar, name='leer'),
-    path('importar', views.importar, name='importar'),
-    path('productoCrud', include(router.urls)),
+    path('leercsv/', views.cargar, name='leer'),
+    path('importar/', views.importar, name='importar'),
 ]
