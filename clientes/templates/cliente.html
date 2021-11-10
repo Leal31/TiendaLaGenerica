@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
     <!-- Boxicons CSS -->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,21 +26,21 @@
         </div>
         <ul class="nav-links">
             <li>
-                <a href="Productos.html" >
+                <a href="{%url "productos"%}" >
                     <i class='bx bx-cart'></i>
                     <span class="link_name">Productos</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="Productos.html" >Productos</a></li>
+                    <li><a class="link_name" href="{%url "productos"%}" >Productos</a></li>
                 </ul>
             </li>
             <li>
-                <a href="cliente.html">
+                <a href="{% url "clientes" %}">
                     <i class='bx bxs-group' ></i>
                     <span class="link_name">Clientes</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="cliente.html">Clientes</a></li>
+                    <li><a class="link_name" href="{% url "clientes" %}">Clientes</a></li>
                 </ul>
             </li>
             <li>
