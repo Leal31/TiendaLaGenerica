@@ -79,37 +79,17 @@ WSGI_APPLICATION = 'TiendaLaGenerica.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'main',
-        'HOST' : '127.0.0.1',
-        'PORT' : '27017',
-    },
-    'login' : {
+    'default' : {
         'ENGINE' : 'djongo',
         'NAME' : 'login',
         'HOST' : '127.0.0.1',
         'PORT' : '27017'
     },
-    'productos' : {
-        'ENGINE' : 'djongo',
-        'NAME' : 'productos',
-        'HOST' : '127.0.0.1',
-        'PORT' : '27017'
-    },
-    'clientes' : {
-        'ENGINE' : 'djongo',
-        'NAME' : 'clientes',
-        'HOST' : '127.0.0.1',
-        'PORT' : '27017'
-    },
+
+
 }
 
-DATABASE_ROUTERS = [
-    'login.routers.loginRouter',
-    'productos.routers.productosRouter',
-    'clientes.routers.clientesRouter',
-    ]
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

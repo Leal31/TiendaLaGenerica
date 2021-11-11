@@ -1,9 +1,9 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render, HttpResponse
 from django.http import HttpResponseRedirect
-from .models import *
 from pathlib import Path
 import os
+import requests
 
 # Create your views here.
 def productos(request):
@@ -41,16 +41,16 @@ def importar(request):
                         linea=linea.rstrip()
                         separador=","
                         lista=linea.split(",")
-                        productos=Productos(
-                            codigo_producto=int(lista[0]),
-                            nombre_producto=lista[1],
-                            nitproveedor=int(lista[2]),
-                            precio_compra=float(lista[3]),
-                            ivacompra=float(lista[4]),
-                            precio_venta=float(lista[5])
-                        )
-                        Productos.save(productos)
-                        mensaje = "El archivo fue subido correctamente"
+                        productos = {
+                            'codigo_producto' : int(lista[0]),
+                            'nombre_producto' : lista[1],
+                            'nitproveedor' : int(lista[2]),
+                            'precio_compra' : float(lista[3]),
+                            'ivacompra' : float(lista[4]),
+                            'precio_venta' : float(lista[5])
+                        }
+                        response = requests.post('http://localhost:8001/api/productos/', data=productos)
+                mensaje = "El archivo fue subido correctamente"
                 return render(request, 'productos/Productos.html', {'mensaje' : mensaje})
             elif extension != '.csv' and extension != '':
                 mensaje = "El archivo no tiene una extension valida"
