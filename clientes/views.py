@@ -22,3 +22,20 @@ def crear(request):
     response =requests.post("http://localhost:8000/api/clientes/",data=dato)
     data=None
     return render(request, "cliente.html", {"data":data})
+
+def actualizar(request):
+    nombre = request.POST.get('nombre_cliente')
+    cedula = request.POST.get('cedula_cliente')
+    telefono = request.POST.get('telefono_cliente')
+    email= request.POST.get('email_cliente')
+    direccion =request.POST.get('direccion_cliente')
+    dato={"cedula": cedula,"nombre": nombre, "telefono":telefono, "email":email,"direccion":direccion}
+    response=requests.put(f'http://localhost:8000/api/clientes/{cedula}/',data=dato)
+    data=None
+    return render(request, "cliente.html", {"data":data})
+
+def borrar(request):
+    cedula = int(request.POST.get("cedula_cliente"))
+    response= requests.delete(f'http://localhost:8000/api/clientes/{cedula}/')
+    data=None
+    return render(request, "cliente.html", {"data":data})

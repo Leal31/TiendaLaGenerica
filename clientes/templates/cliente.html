@@ -155,8 +155,8 @@
                             <div class=btnoo>
                                 <td><input type="submit" name="boton" value="Consultar" formaction="{% url "consultar" %}"/></td>
                                 <td><input type="submit" name="boton" value="Crear" formaction="{% url "crear" %}"/></td>
-                                <td><input type="submit" name="boton" value="Actualizar" /></td>
-                                <td><input type="submit" name="boton" value="Borrar"/></td>
+                                <td><input type="submit" name="boton" value="Actualizar" formaction="{% url "actualizar" %}"/></td>
+                                <td><input type="submit" name="boton" value="Borrar" formaction="{% url "borrar" %}"/></td>
                                 <td><input onclick="limpiar()" type="submit" value="Limpiar"></input></td>
                                     <script>
                                     function limpiar() {
