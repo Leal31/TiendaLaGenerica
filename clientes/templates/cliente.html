@@ -22,7 +22,7 @@
     <div class="sidebar close">
         <div class="logo-details">
             <i class='bx bxs-shopping-bags' ></i>
-            <span class="logo_name">TiendaGenerica</span> 
+            <span class="logo_name">TiendaGenerica</span>
         </div>
         <ul class="nav-links">
             <li>
@@ -71,7 +71,7 @@
                 </ul>
             </li>
             <li>
-        <div class="profile-details"> 
+        <div class="profile-details">
             <div class="profile-content">
                 <img src="img/avatar.svg" alt="profile">
             </div>
@@ -85,14 +85,15 @@
 </ul>
     </div>
     <section class="home-section">
-        <div class="home-content"> 
+        <div class="home-content">
             <i class='bx bx-menu-alt-left' ></i>
             <span class="text">Menu</span>
         </div>
             <form method="POST">
+              {% csrf_token %}
                 <div id="reclientes" class="ctn">
                     <table>
-                        {%if data!=None}
+                        {% if data != None %}
                         <tr>
                             <td>
                                 <label for="document">Cédula</label>
@@ -146,14 +147,14 @@
                                 <input type="text" id="address" name="direccion_cliente"/>
                             </td>
                         </tr>
-                        {%endif%}
-                    </table> 
-                 </div>   
+                        {% endif %}
+                    </table>
+                 </div>
                 <table class="btnoo">
                         <tr class="botoness">
                             <div class=btnoo>
-                                <td><input type="submit" name="boton" value="Consultar" formaction="{%url "consultar" %}"/></td>
-                                <td><input type="submit" name="boton" value="Crear"/></td>
+                                <td><input type="submit" name="boton" value="Consultar" formaction="{% url "consultar" %}"/></td>
+                                <td><input type="submit" name="boton" value="Crear" formaction="{% url "crear" %}"/></td>
                                 <td><input type="submit" name="boton" value="Actualizar" /></td>
                                 <td><input type="submit" name="boton" value="Borrar"/></td>
                                 <td><input onclick="limpiar()" type="submit" value="Limpiar"></input></td>
@@ -169,7 +170,7 @@
                             </div>
                         </tr>
                 </table>
-            </form> 
+            </form>
     </section>
     <script>
         let arrow =document.querySelectorAll(".arrow");
