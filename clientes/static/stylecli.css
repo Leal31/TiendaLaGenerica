@@ -8,7 +8,12 @@ body{
     background: rgb(0,212,255);
     background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(38,32,153,0.4514180672268907) 100%);
 }
-
+.ctns {
+    padding:55% 0% 0% 150%;
+}
+.btnoo{
+    padding: 3% 0% 0% 100%;
+}
 .fondo{
     position: fixed;
     height: 100%;
@@ -17,7 +22,7 @@ body{
     z-index: -1;
 }
 .container{
-    background-image: url('/static/img/fondo5.png');
+    background-image: url('img/fondo5.png');
     width: 100vw;
     height: 100vh;
     display: grid;
@@ -164,6 +169,12 @@ a:hover{
     .container{
         grid-gap: 5rem;
     }
+    .ctns {
+        padding: 70% 0% 0% 150%;
+    }
+    .btnoo {
+        padding: 5% 0% 0% 93%;
+    }
 }
 @media screen and(max-width:1050px){
     form{
@@ -176,6 +187,22 @@ a:hover{
     }
     .img img{
         width: 400px;
+    }
+}
+@media screen and(max-width:1280px){
+    .ctns {
+        padding: 30% 0% 0% 100%;
+    }
+    .btnoo {
+        padding: 3% 0% 0% 45%;
+    }
+}
+@media screen and (max-width:1440px){
+    .ctns {
+        padding: 30% 0% 0% 100%;
+    }
+    .btnoo {
+        padding: 3% 0% 0% 45%;
     }
 }
 @media screen and (max-width: 900px){
@@ -230,7 +257,7 @@ a:hover{
     text-align: center;
     line-height: 50px;
     cursor: pointer;
-
+    
 }
 .sidebar .logo-details .logo_name{
     font-size: 22px;
@@ -333,7 +360,7 @@ a:hover{
     display: block;
     pointer-events: none;
     transition: 0s;
-
+    
 }
 .sidebar.close .nav-links li:hover .sub-menu{
     top: 0;
@@ -450,12 +477,12 @@ a:hover{
 /*productos*/
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap');
 label{
-   color:black;
+   color:black; 
    font-family: 'Noto Serif', serif;;
    width: 200px;
    float: left;
    font-size: 17px;
-
+   
 }
 .botones input{
     display: block;
@@ -487,7 +514,7 @@ label{
 }
 
 #productos .examinar .botones{
-    position:center;
+    position:center; 
     left: -1%
 }
 
@@ -535,4 +562,12 @@ label{
 }
 .botoness input:hover{
         background-position:center;
+}
+@media screen and (max-width: 900px){
+    .ctns {
+        padding: 22% 0% 0% 50%;
+    }
+    .btnoo {
+        padding: 3% 0% 0% 4%;
+    }
 }

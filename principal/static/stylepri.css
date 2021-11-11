@@ -507,3 +507,32 @@ label{
         justify-content: center;
     }
   }
+  .table{
+    margin: 100px auto;
+    align-items: center;
+}
+.table input{
+    margin-left: 20px;
+    border-radius: 3px;
+}
+.botoness input{
+    padding: 6px 48px 3px 49px;
+    display: block;
+    width: auto;
+    height: 32px;
+    border-radius: 10px;
+    margin: 0px;
+    font-size: 12px;
+    outline: none;
+    border: black;
+    background: rgb(64,32,153);
+    background: linear-gradient(90deg, rgba(64,32,153,1) 16%, rgba(0,121,224,1) 90%);    cursor: pointer;
+    color:white;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    background-size: 600%;
+    transition: .5s;
+}
+.botoness input:hover{
+        background-position:center;
+}
