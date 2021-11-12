@@ -18,6 +18,12 @@ body{
     bottom: 0;
     z-index: -1;
 }
+.ctns {
+        padding: 22% 0% 0% 50%;
+    }
+    .btnoo {
+        padding: 3% 0% 0% 4%;
+    }
 .container{
     background-image: url('/static/img/fondo5.png');
     width: 100vw;
@@ -755,7 +761,7 @@ a:hover{
     text-align: center;
     line-height: 50px;
     cursor: pointer;
-    
+
 }
 .sidebar .logo-details .logo_name{
     font-size: 22px;
@@ -858,7 +864,7 @@ a:hover{
     display: block;
     pointer-events: none;
     transition: 0s;
-    
+
 }
 .sidebar.close .nav-links li:hover .sub-menu{
     top: 0;
@@ -975,12 +981,12 @@ a:hover{
 /*productos*/
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap');
 label{
-   color:black; 
+   color:black;
    font-family: 'Noto Serif', serif;;
    width: 200px;
    float: left;
    font-size: 17px;
-   
+
 }
 .botones input{
     display: block;
@@ -1012,7 +1018,7 @@ label{
 }
 
 #productos .examinar .botones{
-    position:center; 
+    position:center;
     left: -1%
 }
 
@@ -1061,8 +1067,13 @@ label{
 .botoness input:hover{
         background-position:center;
 }
-@media screen and (max-width: 900px){
-    .ctns{
-        justify-content: center;
-    }
+@media screen and (max-width: 1720px){
+
+  .ctnp{
+       padding: 32% 0% 0% 130%;
+   }
+   .btnop{
+       padding: 43% 0% 0% 126%;
+   }
+
 }
