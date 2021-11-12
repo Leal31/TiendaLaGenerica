@@ -7,12 +7,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
         <title>Document</title>
-        <style>
-            .ctn {
-                padding: 3% 0% 10% 33%;
-            }
-        </style>
-
     </head>
     <body>
       <script>
@@ -90,23 +84,24 @@
                 <i class="bx bx-menu-alt-left"></i>
                 <span class="text">Menu</span>
             </div>
-            <div id="productos" class="ctn">
+            <div id="productos">
                 <form method="POST">
-                    {% csrf_token %}
-                    <table>
-                        <tr class="examinar">
-                            <td><label for="archivo">Nombre del Archivo</label></td>
-                            <td><input type="file" id="archivo" name="fileupload" accept="text/csv" /></td>
-                            <td class="botones"><input type="submit" name="boton" value="Examinar" formaction = "{% url 'leer' %}" /></td>
-                        </tr>
+                    <div class="ctnp">
+                        {% csrf_token %}
+                        <table>
+                            <tr class="examinar">
+                                <td><label for="archivo">Nombre del Archivo</label></td>
+                                <td><input type="file" id="archivo" name="fileupload" accept="text/csv" /></td>
+                                <td class="botones"><input type="submit" name="boton" value="Examinar" formaction = "{% url 'leer' %}" /></td>
+                            </tr>
+                    </div>
+                    <div class="btnop">
                         <tr class="cargar">
                             <td class="botones"><input type="submit" name="boton" value="Cargar" formaction="{%url 'importar' %}" /></td>
                         </tr>
+                    </div>
                     </table>
                 </form>
-            </div>
-            <div class="m-4" style="height: 800px;">
-                <iframe name="myFrame" style="height: 100%; width: 100%; border: none;"></iframe>
             </div>
         </section>
         <script>

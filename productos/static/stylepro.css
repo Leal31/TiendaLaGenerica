@@ -8,7 +8,9 @@ body{
     background: rgb(0,212,255);
     background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(38,32,153,0.4514180672268907) 100%);
 }
-
+.ctn {
+    padding: 3% 0% 10% 33%;
+}
 .fondo{
     position: fixed;
     height: 100%;
@@ -190,6 +192,20 @@ a:hover{
     }
     .login-container{
         justify-content: center;
+    }
+}
+@media screen and (max-width:1440px){
+    .ctns {
+        padding: 43% 0% 0% 126%;
+    }
+    .btnoo {
+        padding: 3% 0% 0% 77%;
+    }
+    .ctnp{
+        padding: 9% 0% 0% 87%
+    }
+    .btnop{
+        padding: 43% 0% 0% 126%;
     }
 }
 /*Principal*/

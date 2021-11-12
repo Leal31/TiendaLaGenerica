@@ -199,10 +199,13 @@ a:hover{
 }
 @media screen and (max-width:1440px){
     .ctns {
-        padding: 30% 0% 0% 100%;
+        padding: 43% 0% 0% 126%;
     }
     .btnoo {
-        padding: 3% 0% 0% 45%;
+        padding: 3% 0% 0% 77%;
+    }
+    .ctn {
+        padding: 3% 0% 0% 77%;
     }
 }
 @media screen and (max-width: 900px){
