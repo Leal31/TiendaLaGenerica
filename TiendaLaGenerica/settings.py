@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'productos.apps.ProductosConfig',
     'clientes.apps.ClientesConfig',
     'principal.apps.PrincipalConfig',
+    'proveedores.apps.ProveedoresConfig',
     'rest_framework',
 ]
 
