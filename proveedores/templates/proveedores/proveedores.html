@@ -9,6 +9,11 @@
     <title>Document</title>
 </head>
 <body>
+  {% if mensaje != None %}
+    <script>
+      alert("{{ mensaje }}");
+    </script>
+  {% endif %}
     <div class="sidebar close">
         <div class="logo-details">
             <i class='bx bxs-shopping-bags' ></i>
