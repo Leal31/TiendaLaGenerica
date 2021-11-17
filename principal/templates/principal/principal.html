@@ -35,12 +35,22 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">
+                    <li>
+                        <a href="{% url "proveedores" %}">
+                            <i class='bx bx-store-alt'></i>
+                            <span class="link_name">Proveedores</span>
+                        </a>
+                        <ul class="sub-menu blank">
+                            <li><a class="link_name" href="{% url "proveedores" %}">Proveedores</a></li>
+                        </ul>
+                </li>
+                <li>
+                    <a href="{% url 'ventas' %}">
                         <i class="bx bxs-book"></i>
                         <span class="link_name">Ventas</span>
                     </a>
                     <ul class="sub-menu blank">
-                        <li><a class="link_name" href="#">Ventas</a></li>
+                        <li><a class="link_name" href="{% url 'ventas' %}">Ventas</a></li>
                     </ul>
                 </li>
                 <li>

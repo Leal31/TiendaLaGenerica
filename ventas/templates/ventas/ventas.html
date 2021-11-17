@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="sidebar close">
+        <div class="logo-details">
+            <i class='bx bxs-shopping-bags' ></i>
+            <span class="logo_name">TiendaGenerica</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="{%url "productos"%}" >
+                    <i class='bx bx-cart'></i>
+                    <span class="link_name">Productos</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="{%url "productos"%}" >Productos</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="{% url "clientes" %}">
+                    <i class='bx bxs-group' ></i>
+                    <span class="link_name">Clientes</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="{% url "clientes" %}">Clientes</a></li>
+                </ul>
+            </li>
+            <li>
+                <li>
+                    <a href="{% url 'proveedores' %}">
+                        <i class='bx bx-store-alt'></i>
+                        <span class="link_name">Proveedores</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="{% url 'proveedores' %}">Proveedores</a></li>
+                    </ul>
+            </li>
+            <li>
+                <a href="{% url 'ventas' %}">
+                    <i class='bx bxs-book' ></i>
+                    <span class="link_name">Ventas</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="{% url 'ventas' %}">Ventas</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-book-content' ></i>
+                    <span class="link_name">Reportes</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">Reportes</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="Empleado.html" target="myFrame">
+                    <i class='bx bx-world' ></i>
+                    <span class="link_name">Consolidacion</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="Empleado.html" target="myFrame">Consolidacion</a></li>
+                </ul>
+            </li>
+            <li>
+        <div class="profile-details">
+            <div class="profile-content">
+                <img src="/static/img/avatar.svg" alt="profile">
+            </div>
+            <div class="name-job">
+                <div class="profile_name">Luis Julian</div>
+                <div class="job">Developer</div>
+            </div>
+            <i class='bx bxs-log-out' ></i>
+        </div>
+    </li>
+</ul>
+    </div>
+    <section class="home-section">
+        <div class="home-content">
+            <i class='bx bx-menu-alt-left' ></i>
+            <span class="text">Menu</span>
+        </div>
+        <div class="ctnvent">
+            <table id="ventas-a">
+                <tr class="primera">
+                    <td>
+                        <label class= "textos2" for="cedula">Cedula</label>
+                        <input class="caja" type="text" id="cedula" name="cedula_cliente">
+                    </td>
+                    <div class="pos">
+                        <td class="botonessv"><input type="button"  name="boton" value="Consultar"/></td>
+                    </div>
+                    <td>
+                        <label class= "textos2" for="name">Cliente</label>
+                        <input class="caja" type="text" id="name" name="nombre_cliente">
+                    </td>
+                    <td>
+                        <label class= "textos2" for="name">Consec</label>
+                        <input class="caja" type="text" name="consec">
+                    </td>
+                </tr>
+            </table>
+            <table id="ventas-b" class="tabla">
+                <tr class="segunda">
+                    <td class="c_producto"><label  class= "textos" for="code_producto">Cod.Producto</label></td>
+                    <td class="n_producto"><label class= "textos" for="n_producto">Nombre Producto</label></td>
+                    <td class="cantidads"><label class= "textos" for="cantidad">Cantidad</label></td>
+                    <td class="v_totals"><label class= "textos" for="total">Vrl.Total</label></td>
+                </tr>
+            <!--tercera Fila-->
+                <tr class="segunda">
+                    <td><input  class="caja" type="text" id="code_producto" name="codigo_producto"></td>
+                    <td class="botonessv"><input type="submit" value="Consultar"/></td>
+                    <td ><input class="caja" type="text" id="n_producto" name="nombre_producto"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta"></td>
+                </tr>
+                <!--cuarta Fila-->
+                <tr class="segunda">
+                    <td><input  class="caja" type="text" id="code_producto" name="codigo_producto"></td>
+                    <td  class="botonessv"><input type="submit" value="Consultar"/></td>
+                    <td><input class="caja" type="text" id="n_producto" name="nombre_producto"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta"></td>
+                </tr>
+                <!--quinta Fila-->
+                <tr class="segunda">
+                    <td><input class="caja" type="text" id="code_producto" name="codigo_producto"></td>
+                    <td class="botonessv"><input type="submit" value="Consultar"/></td>
+                    <td><input class="caja" type="text" id="n_producto" name="nombre_producto"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta"></td>
+                </tr>
+            </table>
+            <table id="ventas-c" class="tabla2">
+                <tr>
+                    <td><label  class= "textos" for="total_ventas">Total Ventas</label>
+                    <input class="caja" type="text" id="total_ventas" name="total_venta"></td>
+                </tr>
+                <tr>
+                    <td class="espaciostd"><label class= "textos" for="total_iva">Total IVA</label>
+                    <input class="caja" type="text" id="total_iva" name="ivaventa"></td>
+                </tr>
+                <tr>
+                    <td><label class= "textos" for="ventamasIva">Total con IVA</label>
+                    <input class="caja" type="text" id="ventamasIva" name="valor_venta"></td>
+                </tr>
+            </table>
+            <table id="ventas-d" class="tabla3">
+                <tr>
+                    <td  class="botonessv"><input type="button" value="Confirmar"/></td>
+            </tr>
+            </table>
+        </div>
+    </section>
+    <script>
+        let arrow =document.querySelectorAll(".arrow");
+        for(var i=0; i<arrow.length; i++){
+            arrow[i].addEventListener("click", (e)=>{
+        let arrowParent = e.target.parentElement.parentElement;
+            arrowParent.classList.toggle("showMenu");
+            });
+        }
+        let sidebar =document.querySelector(".sidebar");
+        let sidebarBtn =document.querySelector(".bx-menu-alt-left");
+        console.log(sidebarBtn);
+        sidebarBtn.addEventListener("click", ()=>{
+            sidebar.classList.toggle("close");
+        });
+
+    </script>
+</body>
+</html>
