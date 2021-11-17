@@ -186,6 +186,16 @@ a:hover{
         width: 400px;
     }
 }
+@media screen and (max-width: 1820px){
+
+    .ctnp{
+         padding: 32% 0% 0% 130%;
+     }
+     .btnop{
+         padding: 43% 0% 0% 126%;
+     }
+  
+  }
 @media screen and (max-width: 900px){
     .img{
         display: none;
@@ -1067,13 +1077,5 @@ label{
 .botoness input:hover{
         background-position:center;
 }
-@media screen and (max-width: 1720px){
 
-  .ctnp{
-       padding: 32% 0% 0% 130%;
-   }
-   .btnop{
-       padding: 43% 0% 0% 126%;
-   }
 
-}
