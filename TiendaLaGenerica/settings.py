@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'principal.apps.PrincipalConfig',
     'proveedores.apps.ProveedoresConfig',
     'ventas.apps.VentasConfig',
+    'mathfilters',
     'rest_framework',
 ]
 
