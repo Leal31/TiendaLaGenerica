@@ -162,6 +162,26 @@
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3"></td>
                 </tr>
+              </table>
+              <table id="ventas-c" class="tabla2">
+                  <tr>
+                      <td><label  class= "textos" for="total_ventas">Total Ventas </label>
+                      <input class="caja" type="text" id="total_ventas" name="total_venta" ></td>
+                  </tr>
+                  <tr>
+                      <td class="espaciostd"><label class= "textos" for="total_iva">Total IVA</label>
+                      <input class="caja" type="text" id="total_iva" name="ivaventa" ></td>
+                  </tr>
+                  <tr>
+                      <td><label class= "textos" for="ventamasIva">Total con IVA</label>
+                      <input class="caja" type="text" id="ventamasIva" name="valor_venta" ></td>
+                  </tr>
+              </table>
+              <table id="ventas-d" class="tabla3">
+                  <tr>
+                      <td  class="botonessv"><input type="button" value="Confirmar"/></td>
+              </tr>
+              </table>
                 {% elif condicional == "lleno3" %}
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto"></td>
@@ -186,6 +206,26 @@
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3"value="{{data3.precio_venta}}"></td>
                 </tr>
+              </table>
+              <table id="ventas-c" class="tabla2">
+                  <tr>
+                      <td><label  class= "textos" for="total_ventas">Total Ventas </label>
+                      <input class="caja" type="text" id="total_ventas" name="total_venta" value = "{{ data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta }}"></td>
+                  </tr>
+                  <tr>
+                      <td class="espaciostd"><label class= "textos" for="total_iva">Total IVA</label>
+                      <input class="caja" type="text" id="total_iva" name="ivaventa" value = "{{ data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta|mul:0.19 }}"></td>
+                  </tr>
+                  <tr>
+                      <td><label class= "textos" for="ventamasIva">Total con IVA</label>
+                      <input class="caja" type="text" id="ventamasIva" name="valor_venta" value = "{{ data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta|mul:0.19|add:data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta }}"></td>
+                  </tr>
+              </table>
+              <table id="ventas-d" class="tabla3">
+                  <tr>
+                      <td  class="botonessv"><input type="button" value="Confirmar"/></td>
+              </tr>
+              </table>
                 {% elif condicional == "lleno1" %}
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto" value="{{data1.codigo_producto}}"></td>
@@ -210,6 +250,26 @@
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3"></td>
                 </tr>
+              </table>
+              <table id="ventas-c" class="tabla2">
+                  <tr>
+                      <td><label  class= "textos" for="total_ventas">Total Ventas </label>
+                      <input class="caja" type="text" id="total_ventas" name="total_venta" value = "{{ data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta }}"></td>
+                  </tr>
+                  <tr>
+                      <td class="espaciostd"><label class= "textos" for="total_iva">Total IVA</label>
+                      <input class="caja" type="text" id="total_iva" name="ivaventa" value = "{{ data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta|mul:0.19 }}"></td>
+                  </tr>
+                  <tr>
+                      <td><label class= "textos" for="ventamasIva">Total con IVA</label>
+                      <input class="caja" type="text" id="ventamasIva" name="valor_venta" value = "{{ data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta|mul:0.19|add:data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta }}"></td>
+                  </tr>
+              </table>
+              <table id="ventas-d" class="tabla3">
+                  <tr>
+                      <td  class="botonessv"><input type="button" value="Confirmar"/></td>
+              </tr>
+              </table>
                 {% elif condicional == "lleno2" %}
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto"></td>
@@ -234,6 +294,26 @@
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3"></td>
                 </tr>
+              </table>
+              <table id="ventas-c" class="tabla2">
+                  <tr>
+                      <td><label  class= "textos" for="total_ventas">Total Ventas </label>
+                      <input class="caja" type="text" id="total_ventas" name="total_venta" value = "{{ data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta }}"></td>
+                  </tr>
+                  <tr>
+                      <td class="espaciostd"><label class= "textos" for="total_iva">Total IVA</label>
+                      <input class="caja" type="text" id="total_iva" name="ivaventa" value = "{{ data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta|mul:0.19 }}"></td>
+                  </tr>
+                  <tr>
+                      <td><label class= "textos" for="ventamasIva">Total con IVA</label>
+                      <input class="caja" type="text" id="ventamasIva" name="valor_venta" value = "{{ data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta|mul:0.19|add:data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta }}"></td>
+                  </tr>
+              </table>
+              <table id="ventas-d" class="tabla3">
+                  <tr>
+                      <td  class="botonessv"><input type="button" value="Confirmar"/></td>
+              </tr>
+              </table>
                 {% elif condicional == "vacio1" %}
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto"></td>
@@ -258,6 +338,26 @@
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3" value="{{data3.precio_venta}}"></td>
                 </tr>
+              </table>
+              <table id="ventas-c" class="tabla2">
+                  <tr>
+                      <td><label  class= "textos" for="total_ventas">Total Ventas </label>
+                      <input class="caja" type="text" id="total_ventas" name="total_venta" value = "{{ data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta }}"></td>
+                  </tr>
+                  <tr>
+                      <td class="espaciostd"><label class= "textos" for="total_iva">Total IVA</label>
+                      <input class="caja" type="text" id="total_iva" name="ivaventa" value = "{{ data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta|mul:0.19 }}"></td>
+                  </tr>
+                  <tr>
+                      <td><label class= "textos" for="ventamasIva">Total con IVA</label>
+                      <input class="caja" type="text" id="ventamasIva" name="valor_venta" value = "{{ data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta|mul:0.19|add:data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta }}"></td>
+                  </tr>
+              </table>
+              <table id="ventas-d" class="tabla3">
+                  <tr>
+                      <td  class="botonessv"><input type="button" value="Confirmar"/></td>
+              </tr>
+              </table>
                 {% elif condicional == "vacio2" %}
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto" value="{{data1.codigo_producto}}"></td>
@@ -282,6 +382,26 @@
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3" value="{{data3.precio_venta}}"></td>
                 </tr>
+              </table>
+              <table id="ventas-c" class="tabla2">
+                  <tr>
+                      <td><label  class= "textos" for="total_ventas">Total Ventas </label>
+                      <input class="caja" type="text" id="total_ventas" name="total_venta" value = "{{ data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta }}"></td>
+                  </tr>
+                  <tr>
+                      <td class="espaciostd"><label class= "textos" for="total_iva">Total IVA</label>
+                      <input class="caja" type="text" id="total_iva" name="ivaventa" value = "{{ data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta|mul:0.19 }}"></td>
+                  </tr>
+                  <tr>
+                      <td><label class= "textos" for="ventamasIva">Total con IVA</label>
+                      <input class="caja" type="text" id="ventamasIva" name="valor_venta" value = "{{ data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta|mul:0.19|add:data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta }}"></td>
+                  </tr>
+              </table>
+              <table id="ventas-d" class="tabla3">
+                  <tr>
+                      <td  class="botonessv"><input type="button" value="Confirmar"/></td>
+              </tr>
+              </table>
                 {% elif condicional == "vacio3" %}
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto" value= "{{data1.codigo_producto}}"></td>
@@ -306,11 +426,31 @@
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3"></td>
                 </tr>
+              </table>
+              <table id="ventas-c" class="tabla2">
+                  <tr>
+                      <td><label  class= "textos" for="total_ventas">Total Ventas </label>
+                      <input class="caja" type="text" id="total_ventas" name="total_venta" value = "{{ data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta }}"></td>
+                  </tr>
+                  <tr>
+                      <td class="espaciostd"><label class= "textos" for="total_iva">Total IVA</label>
+                      <input class="caja" type="text" id="total_iva" name="ivaventa" value = "{{ data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta|mul:0.19 }}"></td>
+                  </tr>
+                  <tr>
+                      <td><label class= "textos" for="ventamasIva">Total con IVA</label>
+                      <input class="caja" type="text" id="ventamasIva" name="valor_venta" value = "{{ data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta|mul:0.19|add:data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta }}"></td>
+                  </tr>
+              </table>
+              <table id="ventas-d" class="tabla3">
+                  <tr>
+                      <td  class="botonessv"><input type="button" value="Confirmar"/></td>
+              </tr>
+              </table>
                 {% elif condicional == "todosllenos" %}
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto" value= "{{data1.codigo_producto}}"></td>
                     <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
-                    <td ><input class="caja" type="text" id="n_producto" name="nombre_producto" value="{{data1.nombre_producto"></td>
+                    <td ><input class="caja" type="text" id="n_producto" name="nombre_producto" value="{{data1.nombre_producto}}"></td>
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta" value="{{data1.precio_venta}}"></td>
                 </tr>
@@ -330,7 +470,27 @@
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3" value= "{{data3.precio_venta}}"></td>
                 </tr>
-                {% else %}
+              </table>
+              <table id="ventas-c" class="tabla2">
+                  <tr>
+                      <td><label  class= "textos" for="total_ventas">Total Ventas </label>
+                      <input class="caja" type="text" id="total_ventas" name="total_venta" value = "{{ data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta }}"></td>
+                  </tr>
+                  <tr>
+                      <td class="espaciostd"><label class= "textos" for="total_iva">Total IVA</label>
+                      <input class="caja" type="text" id="total_iva" name="ivaventa" value = "{{ data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta|mul:0.19 }}"></td>
+                  </tr>
+                  <tr>
+                      <td><label class= "textos" for="ventamasIva">Total con IVA</label>
+                      <input class="caja" type="text" id="ventamasIva" name="valor_venta" value = "{{ data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta|mul:0.19|add:data1.precio_venta|add:data2.precio_venta|add:data3.precio_venta }}"></td>
+                  </tr>
+              </table>
+              <table id="ventas-d" class="tabla3">
+                  <tr>
+                      <td  class="botonessv"><input type="button" value="Confirmar"/></td>
+              </tr>
+              </table>
+                {% elif condicional == None %}
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto"></td>
                     <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
@@ -354,27 +514,28 @@
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3"></td>
                 </tr>
-                {% endif %}
-            </table>
-            <table id="ventas-c" class="tabla2">
-                <tr>
-                    <td><label  class= "textos" for="total_ventas">Total Ventas </label>
-                    <input class="caja" type="text" id="total_ventas" name="total_venta" value="{{data1.precio_venta |add: data2.precio_venta |add: data3.precio_venta}}"></td>
-                </tr>
-                <tr>
-                    <td class="espaciostd"><label class= "textos" for="total_iva">Total IVA</label>
-                    <input class="caja" type="text" id="total_iva" name="ivaventa"value="{{(data1.precio_venta |add: data2.precio_venta |add: data3.precio_venta) |mul: 0.19}}"></td>
-                </tr>
-                <tr>
-                    <td><label class= "textos" for="ventamasIva">Total con IVA</label>
-                    <input class="caja" type="text" id="ventamasIva" name="valor_venta" value="{{((data1.precio_venta |add: data2.precio_venta |add: data3.precio_venta) |mul: 0.19) |add: (data1.precio_venta |add: data2.precio_venta |add: data3.precio_venta)}}"></td>
-                </tr>
-            </table>
-            <table id="ventas-d" class="tabla3">
-                <tr>
-                    <td  class="botonessv"><input type="button" value="Confirmar"/></td>
-            </tr>
-            </table>
+              </table>
+              <table id="ventas-c" class="tabla2">
+                  <tr>
+                      <td><label  class= "textos" for="total_ventas">Total Ventas </label>
+                      <input class="caja" type="text" id="total_ventas" name="total_venta"></td>
+                  </tr>
+                  <tr>
+                      <td class="espaciostd"><label class= "textos" for="total_iva">Total IVA</label>
+                      <input class="caja" type="text" id="total_iva" name="ivaventa"></td>
+                  </tr>
+                  <tr>
+                      <td><label class= "textos" for="ventamasIva">Total con IVA</label>
+                      <input class="caja" type="text" id="ventamasIva" name="valor_venta" ></td>
+                  </tr>
+              </table>
+              <table id="ventas-d" class="tabla3">
+                  <tr>
+                      <td  class="botonessv"><input type="button" value="Confirmar"/></td>
+              </tr>
+              </table>
+            {% endif %}
+
         </div>
       </form>
     </section>
