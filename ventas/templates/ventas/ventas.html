@@ -89,20 +89,37 @@
             <i class='bx bx-menu-alt-left' ></i>
             <span class="text">Menu</span>
         </div>
+        <form method = 'POST'>
+          {% csrf_token %}
         <div class="ctnvent">
             <table id="ventas-a">
+              {% if Cliente != None %}
                 <tr class="primera">
                     <td>
                         <label class= "textos2" for="cedula">Cedula</label>
-                        <input class="caja" type="text" id="cedula" name="cedula_cliente">
+                        <input class="caja" type="text" id="cedula" name="cedula_cliente" value = "{{ Cliente.cedula }}">
                     </td>
                     <div class="pos">
-                        <td class="botonessv"><input type="button"  name="boton" value="Consultar"/></td>
+                        <td class="botonessv"><input type="button"  name="boton" value="Consultar" formaction="{% url "consultarCliente" %}"/></td>
                     </div>
                     <td>
                         <label class= "textos2" for="name">Cliente</label>
-                        <input class="caja" type="text" id="name" name="nombre_cliente">
+                        <input class="caja" type="text" id="name" name="nombre_cliente" value = "{{ Cliente.nombre }}">
                     </td>
+                  {% elif Cliente == None %}
+                  <tr class="primera">
+                      <td>
+                          <label class= "textos2" for="cedula">Cedula</label>
+                          <input class="caja" type="text" id="cedula" name="cedula_cliente" value = "{{ Cliente.cedula }}">
+                      </td>
+                      <div class="pos">
+                          <td class="botonessv"><input type="submit"  name="boton" value="Consultar" formaction = "{% url "consultarCliente" %}"/></td>
+                      </div>
+                      <td>
+                          <label class= "textos2" for="name">Cliente</label>
+                          <input class="caja" type="text" id="name" name="nombre_cliente" value = "{{ Cliente.nombre }}">
+                      </td>
+                      {% endif %}
                     <td>
                         <label class= "textos2" for="name">Consec</label>
                         <input class="caja" type="text" name="consec">
@@ -117,29 +134,202 @@
                     <td class="v_totals"><label class= "textos" for="total">Vrl.Total</label></td>
                 </tr>
             <!--tercera Fila-->
+              {% if condicional == "todovacio" %}
+              <script>
+                alert("{{ mensaje }}")
+              </script>
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto"></td>
-                    <td class="botonessv"><input type="submit" value="Consultar"/></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
                     <td ><input class="caja" type="text" id="n_producto" name="nombre_producto"></td>
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta"></td>
                 </tr>
                 <!--cuarta Fila-->
                 <tr class="segunda">
-                    <td><input  class="caja" type="text" id="code_producto" name="codigo_producto"></td>
-                    <td  class="botonessv"><input type="submit" value="Consultar"/></td>
-                    <td><input class="caja" type="text" id="n_producto" name="nombre_producto"></td>
-                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad"></td>
-                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta"></td>
+                    <td><input  class="caja" type="text" id="code_producto" name="codigo_producto2"></td>
+                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td><input class="caja" type="text" id="n_producto" name="nombre_producto2"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad2"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta2"></td>
                 </tr>
                 <!--quinta Fila-->
                 <tr class="segunda">
-                    <td><input class="caja" type="text" id="code_producto" name="codigo_producto"></td>
-                    <td class="botonessv"><input type="submit" value="Consultar"/></td>
-                    <td><input class="caja" type="text" id="n_producto" name="nombre_producto"></td>
+                    <td><input class="caja" type="text" id="code_producto" name="codigo_producto3"></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td><input class="caja" type="text" id="n_producto" name="nombre_producto3"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3"></td>
+                </tr>
+                {% elif condicional == "lleno3" %}
+                <tr class="segunda">
+                    <td><input  class="caja" type="text" id="code_producto" name="codigo_producto"></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td ><input class="caja" type="text" id="n_producto" name="nombre_producto"></td>
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta"></td>
                 </tr>
+                <!--cuarta Fila-->
+                <tr class="segunda">
+                    <td><input  class="caja" type="text" id="code_producto" name="codigo_producto2"></td>
+                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td><input class="caja" type="text" id="n_producto" name="nombre_producto2"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad2"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta2"></td>
+                </tr>
+                <!--quinta Fila-->
+                <tr class="segunda">
+                    <td><input class="caja" type="text" id="code_producto" name="codigo_producto3"></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td><input class="caja" type="text" id="n_producto" name="nombre_producto3"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3"></td>
+                </tr>
+                {% elif condicional == "lleno1" %}
+                <tr class="segunda">
+                    <td><input  class="caja" type="text" id="code_producto" name="codigo_producto"></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td ><input class="caja" type="text" id="n_producto" name="nombre_producto"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta"></td>
+                </tr>
+                <!--cuarta Fila-->
+                <tr class="segunda">
+                    <td><input  class="caja" type="text" id="code_producto" name="codigo_producto2"></td>
+                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td><input class="caja" type="text" id="n_producto" name="nombre_producto2"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad2"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta2"></td>
+                </tr>
+                <!--quinta Fila-->
+                <tr class="segunda">
+                    <td><input class="caja" type="text" id="code_producto" name="codigo_producto3"></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td><input class="caja" type="text" id="n_producto" name="nombre_producto3"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3"></td>
+                </tr>
+                {% elif condicional == "lleno2" %}
+                <tr class="segunda">
+                    <td><input  class="caja" type="text" id="code_producto" name="codigo_producto"></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td ><input class="caja" type="text" id="n_producto" name="nombre_producto"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta"></td>
+                </tr>
+                <!--cuarta Fila-->
+                <tr class="segunda">
+                    <td><input  class="caja" type="text" id="code_producto" name="codigo_producto2"></td>
+                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td><input class="caja" type="text" id="n_producto" name="nombre_producto2"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad2"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta2"></td>
+                </tr>
+                <!--quinta Fila-->
+                <tr class="segunda">
+                    <td><input class="caja" type="text" id="code_producto" name="codigo_producto3"></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td><input class="caja" type="text" id="n_producto" name="nombre_producto3"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3"></td>
+                </tr>
+                {% elif condicional == "vacio1" %}
+                <tr class="segunda">
+                    <td><input  class="caja" type="text" id="code_producto" name="codigo_producto"></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td ><input class="caja" type="text" id="n_producto" name="nombre_producto"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta"></td>
+                </tr>
+                <!--cuarta Fila-->
+                <tr class="segunda">
+                    <td><input  class="caja" type="text" id="code_producto" name="codigo_producto2"></td>
+                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td><input class="caja" type="text" id="n_producto" name="nombre_producto2"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad2"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta2"></td>
+                </tr>
+                <!--quinta Fila-->
+                <tr class="segunda">
+                    <td><input class="caja" type="text" id="code_producto" name="codigo_producto3"></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td><input class="caja" type="text" id="n_producto" name="nombre_producto3"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3"></td>
+                </tr>
+                {% elif condicional == "vacio2" %}
+                <tr class="segunda">
+                    <td><input  class="caja" type="text" id="code_producto" name="codigo_producto"></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td ><input class="caja" type="text" id="n_producto" name="nombre_producto"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta"></td>
+                </tr>
+                <!--cuarta Fila-->
+                <tr class="segunda">
+                    <td><input  class="caja" type="text" id="code_producto" name="codigo_producto2"></td>
+                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td><input class="caja" type="text" id="n_producto" name="nombre_producto2"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad2"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta2"></td>
+                </tr>
+                <!--quinta Fila-->
+                <tr class="segunda">
+                    <td><input class="caja" type="text" id="code_producto" name="codigo_producto3"></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td><input class="caja" type="text" id="n_producto" name="nombre_producto3"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3"></td>
+                </tr>
+                {% elif condicional == "vacio3" %}
+                <tr class="segunda">
+                    <td><input  class="caja" type="text" id="code_producto" name="codigo_producto"></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td ><input class="caja" type="text" id="n_producto" name="nombre_producto"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta"></td>
+                </tr>
+                <!--cuarta Fila-->
+                <tr class="segunda">
+                    <td><input  class="caja" type="text" id="code_producto" name="codigo_producto2"></td>
+                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td><input class="caja" type="text" id="n_producto" name="nombre_producto2"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad2"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta2"></td>
+                </tr>
+                <!--quinta Fila-->
+                <tr class="segunda">
+                    <td><input class="caja" type="text" id="code_producto" name="codigo_producto3"></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td><input class="caja" type="text" id="n_producto" name="nombre_producto3"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3"></td>
+                </tr>
+                {% else %}
+                <tr class="segunda">
+                    <td><input  class="caja" type="text" id="code_producto" name="codigo_producto"></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td ><input class="caja" type="text" id="n_producto" name="nombre_producto"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta"></td>
+                </tr>
+                <!--cuarta Fila-->
+                <tr class="segunda">
+                    <td><input  class="caja" type="text" id="code_producto" name="codigo_producto2"></td>
+                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td><input class="caja" type="text" id="n_producto" name="nombre_producto2"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad2"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta2"></td>
+                </tr>
+                <!--quinta Fila-->
+                <tr class="segunda">
+                    <td><input class="caja" type="text" id="code_producto" name="codigo_producto3"></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td><input class="caja" type="text" id="n_producto" name="nombre_producto3"></td>
+                    <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3"></td>
+                </tr>
+                {% endif %}
             </table>
             <table id="ventas-c" class="tabla2">
                 <tr>
@@ -161,6 +351,7 @@
             </tr>
             </table>
         </div>
+      </form>
     </section>
     <script>
         let arrow =document.querySelectorAll(".arrow");
