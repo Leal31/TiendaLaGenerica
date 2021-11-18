@@ -1,4 +1,4 @@
-{% load mathfilters %}
+ {% load mathfilters %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -452,7 +452,7 @@
                     <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
                     <td ><input class="caja" type="text" id="n_producto" name="nombre_producto" value="{{data1.nombre_producto}}"></td>
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad"></td>
-                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta" value="{{data1.precio_venta}}"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta" value="{{data1.precio_venta|mul:cantidad1}}"></td>
                 </tr>
                 <!--cuarta Fila-->
                 <tr class="segunda">
@@ -460,7 +460,7 @@
                     <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
                     <td><input class="caja" type="text" id="n_producto" name="nombre_producto2" value="{{data2.nombre_producto}}"></td>
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad2"></td>
-                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta2" value="{{data2.precio_venta}}"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta2" value="{{data2.precio_venta1|mul:cantidad2}}"></td>
                 </tr>
                 <!--quinta Fila-->
                 <tr class="segunda">
@@ -468,7 +468,7 @@
                     <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
                     <td><input class="caja" type="text" id="n_producto" name="nombre_producto3" value="{{data3.nombre_producto}}"></td>
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
-                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3" value= "{{data3.precio_venta}}"></td>
+                    <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3" value= "{{data3.precio_venta|mul:cantidad3}}"></td>
                 </tr>
               </table>
               <table id="ventas-c" class="tabla2">
