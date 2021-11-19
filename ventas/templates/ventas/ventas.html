@@ -219,7 +219,7 @@
                   </tr>
                   <tr>
                       <td><label class= "textos" for="ventamasIva">Total con IVA</label>
-			
+
                       <input class="caja" type="text" id="ventamasIva" name="valor_venta" value = "{{ precio_venta|add:iva }}"></td>
                   </tr>
               </table>
@@ -331,7 +331,7 @@
                 </tr>
                 <!--cuarta Fila-->
                 <tr class="segunda">
-                    {% with precio_venta2=data2.precio_venta|mul:cantidad2 precio_venta3=data3.precio_venta|mul:cantidad3 iva=precio_venta2|add:precio_venta3|mul:0.19 preciototal=precio_venta2|add:precio_venta3 %}
+                    {% with precio_venta2=data2.precio_venta|mul:cantidad2 precio_venta3=data3.precio_venta|mul:cantidad3 iva=data2.precio_venta|mul:cantidad2|add:data3.precio_venta|mul:cantidad3|mul:0.19 %}
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto2" value="{{data2.codigo_producto}}"></td>
                     <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
                     <td><input class="caja" type="text" id="n_producto" name="nombre_producto2" value="{{data2.nombre_producto}}"></td>
