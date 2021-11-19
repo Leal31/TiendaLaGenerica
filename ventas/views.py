@@ -52,28 +52,28 @@ def consultarProductos(request):
     elif producto2 == '' and producto3 == '':
         mensaje = None
         condicional = "lleno1"
-        response= requests.get(f"localhost:8001/api/productos/{producto1}/")
+        response= requests.get(f"http://localhost:8001/api/productos/{producto1}/")
         data1=response.json()
         data2=None
         data3=None
-        return render(request, 'ventas/ventas.html', {'mensaje' : mensaje, 'data1' : data1, 'data2' : data2, 'data3': data3, 'condicional' : condicional})
+        return render(request, 'ventas/ventas.html', {'mensaje' : mensaje, 'data1' : data1, 'data2' : data2, 'data3': data3, 'condicional' : condicional, 'cantidad1' : cantidad1})
     elif producto1 == '' and producto3 == '':
         mensaje = None
         condicional = "lleno2"
-        response= requests.get(f"localhost:8001/api/productos/{producto2}/")
+        response= requests.get(f"http://localhost:8001/api/productos/{producto2}/")
         data1=None
         data2= response.json()
         data3=None
-        return render(request, 'ventas/ventas.html', {'mensaje' : mensaje, 'data1' : data1, 'data2' : data2, 'data3': data3, 'condicional' : condicional})
+        return render(request, 'ventas/ventas.html', {'mensaje' : mensaje, 'data1' : data1, 'data2' : data2, 'data3': data3, 'condicional' : condicional, 'cantidad2': cantidad2})
     elif producto1 == '':
         mensaje = None
         condicional = "vacio1"
-        response= requests.get(f"localhost:8001/api/productos/{producto2}/")
-        response1= requests.get(f"localhost:8001/api/productos/{producto3}/")
+        response= requests.get(f"http://localhost:8001/api/productos/{producto2}/")
+        response1= requests.get(f"http://localhost:8001/api/productos/{producto3}/")
         data1=None
         data2=response.json()
         data3=response1.json()
-        return render(request, 'ventas/ventas.html', {'mensaje' : mensaje, 'data1' : data1, 'data2' : data2, 'data3': data3, 'condicional' : condicional})
+        return render(request, 'ventas/ventas.html', {'mensaje' : mensaje, 'data1' : data1, 'data2' : data2, 'data3': data3, 'condicional' : condicional,'cantidad2': cantidad2,'cantidad3': cantidad3})
     elif producto2 == '':
         mensaje = None
         condicional = "vacio2"
