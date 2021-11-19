@@ -101,7 +101,7 @@ def consultarProductos(request):
         data1=response.json()
         data2=response1.json()
         data3=response2.json()
-        return render(request, 'ventas/ventas.html', {'mensaje' : mensaje, 'data1' : data1, 'data2' : data2, 'data3': data3, 'condicional' : condicional })
+        return render(request, 'ventas/ventas.html', {'mensaje' : mensaje, 'data1' : data1, 'data2' : data2, 'data3': data3, 'condicional' : condicional, 'cantidad1' : cantidad1, 'cantidad2' : cantidad2, 'cantidad3' : cantidad3})
     else:
         mensaje= None
         condicional = None
