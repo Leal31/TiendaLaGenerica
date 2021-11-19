@@ -29,6 +29,9 @@ def consultarProductos(request):
         producto1 = request.POST.get('codigo_producto')
         producto2 = request.POST.get('codigo_producto2')
         producto3 = request.POST.get('codigo_producto3')
+        cantidad1 = request.POST.get('cantidad1')
+        cantidad2 = request.POST.get('cantidad2')
+        cantidad3 = request.POST.get('cantidad3')
     except Exception:
         print('algo ha salido mal')
     if (producto1 == '' and producto2 == '') and producto3 == '':
@@ -41,11 +44,11 @@ def consultarProductos(request):
     elif producto1 == '' and producto2 == '':
         mensaje = None
         condicional = "lleno3"
-        response= requests.get(f"localhost:8001/api/productos/{producto3}/")
+        response= requests.get(f"http://localhost:8001/api/productos/{producto3}/")
         data1=None
         data2=None
         data3= response.json()
-        return render(request, 'ventas/ventas.html', {'mensaje' : mensaje, 'data1' : data1, 'data2' : data2, 'data3': data3, 'condicional' : condicional})
+        return render(request, 'ventas/ventas.html', {'mensaje' : mensaje, 'data1' : data1, 'data2' : data2, 'data3': data3, 'condicional' : condicional, 'cantidad3' : cantidad3})
     elif producto2 == '' and producto3 == '':
         mensaje = None
         condicional = "lleno1"
@@ -98,7 +101,7 @@ def consultarProductos(request):
         data1=response.json()
         data2=response1.json()
         data3=response2.json()
-        return render(request, 'ventas/ventas.html', {'mensaje' : mensaje, 'data1' : data1, 'data2' : data2, 'data3': data3, 'condicional' : condicional, 'cantidad1' : cantidad1, 'cantidad2' : cantidad2, 'cantidad3' : cantidad3})
+        return render(request, 'ventas/ventas.html', {'mensaje' : mensaje, 'data1' : data1, 'data2' : data2, 'data3': data3, 'condicional' : condicional })
     else:
         mensaje= None
         condicional = None
