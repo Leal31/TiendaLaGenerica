@@ -93,7 +93,9 @@
         <form method = 'POST'>
           {% csrf_token %}
         <div class="ctnvent">
-            <table id="ventas-a">
+                        <!--tercera Fila-->
+              {% if condicional == "todovacio" %}
+	      <table id="ventas-a">
               {% if Cliente != None %}
                 <tr class="primera">
                     <td>
@@ -101,7 +103,7 @@
                         <input class="caja" type="text" id="cedula" name="cedula_cliente" value = "{{ Cliente.cedula }}">
                     </td>
                     <div class="pos">
-                        <td class="botonessv"><input type="button"  name="boton" value="Consultar" formaction="{% url "consultarCliente" %}"/></td>
+                        <td class="botonessv"><input type="button"  name="boton" value="Consultar" formaction="{% url "consultarTodo" %}"/></td>
                     </div>
                     <td>
                         <label class= "textos2" for="name">Cliente</label>
@@ -114,7 +116,7 @@
                           <input class="caja" type="text" id="cedula" name="cedula_cliente" value = "{{ Cliente.cedula }}">
                       </td>
                       <div class="pos">
-                          <td class="botonessv"><input type="submit"  name="boton" value="Consultar" formaction = "{% url "consultarCliente" %}"/></td>
+                          <td class="botonessv"><input type="submit"  name="boton" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                       </div>
                       <td>
                           <label class= "textos2" for="name">Cliente</label>
@@ -135,13 +137,13 @@
                     <td class="v_totals"><label class= "textos" for="total">Vrl.Total</label></td>
                 </tr>
             <!--tercera Fila-->
-              {% if condicional == "todovacio" %}
+
               <script>
                 alert("{{ mensaje }}")
               </script>
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto"></td>
-                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td ><input class="caja" type="text" id="n_producto" name="nombre_producto"></td>
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta"></td>
@@ -149,7 +151,7 @@
                 <!--cuarta Fila-->
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto2"></td>
-                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td><input class="caja" type="text" id="n_producto" name="nombre_producto2"></td>
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad2"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta2"></td>
@@ -157,7 +159,7 @@
                 <!--quinta Fila-->
                 <tr class="segunda">
                     <td><input class="caja" type="text" id="code_producto" name="codigo_producto3"></td>
-                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td><input class="caja" type="text" id="n_producto" name="nombre_producto3"></td>
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3"></td>
@@ -177,15 +179,53 @@
                       <input class="caja" type="text" id="ventamasIva" name="valor_venta" ></td>
                   </tr>
               </table>
-              <table id="ventas-d" class="tabla3">
-                  <tr>
-                      <td  class="botonessv"><input type="button" value="Confirmar"/></td>
-              </tr>
-              </table>
-                {% elif condicional == "lleno3" %}
+              {% elif condicional == "lleno3" %}
+	    <table id="ventas-a">
+              {% if Cliente != None %}
+                <tr class="primera">
+                    <td>
+                        <label class= "textos2" for="cedula">Cedula</label>
+                        <input class="caja" type="text" id="cedula" name="cedula_cliente" value = "{{ Cliente.cedula }}">
+                    </td>
+                    <div class="pos">
+                        <td class="botonessv"><input type="button"  name="boton" value="Consultar" formaction="{% url "consultarTodo" %}"/></td>
+                    </div>
+                    <td>
+                        <label class= "textos2" for="name">Cliente</label>
+                        <input class="caja" type="text" id="name" name="nombre_cliente" value = "{{ Cliente.nombre }}">
+                    </td>
+                  {% elif Cliente == None %}
+                  <tr class="primera">
+                      <td>
+                          <label class= "textos2" for="cedula">Cedula</label>
+                          <input class="caja" type="text" id="cedula" name="cedula_cliente" value = "{{ Cliente.cedula }}">
+                      </td>
+                      <div class="pos">
+                          <td class="botonessv"><input type="submit"  name="boton" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
+                      </div>
+                      <td>
+                          <label class= "textos2" for="name">Cliente</label>
+                          <input class="caja" type="text" id="name" name="nombre_cliente" value = "{{ Cliente.nombre }}">
+                      </td>
+                      {% endif %}
+                    <td>
+                        <label class= "textos2" for="name">Consec</label>
+                        <input class="caja" type="text" name="consec">
+                    </td>
+                </tr>
+            </table>
+            <table id="ventas-b" class="tabla">
+                <tr class="segunda">
+                    <td class="c_producto"><label  class= "textos" for="code_producto">Cod.Producto</label></td>
+                    <td class="n_producto"><label class= "textos" for="n_producto">Nombre Producto</label></td>
+                    <td class="cantidads"><label class= "textos" for="cantidad">Cantidad</label></td>
+                    <td class="v_totals"><label class= "textos" for="total">Vrl.Total</label></td>
+                </tr>
+            <!--tercera Fila-->
+
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto"></td>
-                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td ><input class="caja" type="text" id="n_producto" name="nombre_producto"></td>
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta"></td>
@@ -193,7 +233,7 @@
                 <!--cuarta Fila-->
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto2"></td>
-                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td><input class="caja" type="text" id="n_producto" name="nombre_producto2"></td>
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad2"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta2"></td>
@@ -202,7 +242,7 @@
                 <tr class="segunda">
 		  {% with precio_venta=data3.precio_venta|mul:cantidad3 iva=data3.precio_venta|mul:cantidad3|mul:0.19  %}
                     <td><input class="caja" type="text" id="code_producto" name="codigo_producto3" value="{{data3.codigo_producto}}"></td>
-                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td><input class="caja" type="text" id="n_producto" name="nombre_producto3" value= "{{data3.nombre_producto}}"></td>
 		    <td><input type="number" min="1" max="9" step="1" value="{{ cantidad3 }}" id="cantidad" name="cantidad3"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3"value="{{data3.precio_venta|mul:cantidad3}}"></td>
@@ -224,16 +264,54 @@
                   </tr>
               </table>
 	      {% endwith %}
-              <table id="ventas-d" class="tabla3">
-                  <tr>
-                      <td  class="botonessv"><input type="button" value="Confirmar"/></td>
-              </tr>
-              </table>
-                {% elif condicional == "lleno1" %}
+              {% elif condicional == "lleno1" %}
+	      <table id="ventas-a">
+              {% if Cliente != None %}
+                <tr class="primera">
+                    <td>
+                        <label class= "textos2" for="cedula">Cedula</label>
+                        <input class="caja" type="text" id="cedula" name="cedula_cliente" value = "{{ Cliente.cedula }}">
+                    </td>
+                    <div class="pos">
+                        <td class="botonessv"><input type="button"  name="boton" value="Consultar" formaction="{% url "consultarTodo" %}"/></td>
+                    </div>
+                    <td>
+                        <label class= "textos2" for="name">Cliente</label>
+                        <input class="caja" type="text" id="name" name="nombre_cliente" value = "{{ Cliente.nombre }}">
+                    </td>
+                  {% elif Cliente == None %}
+                  <tr class="primera">
+                      <td>
+                          <label class= "textos2" for="cedula">Cedula</label>
+                          <input class="caja" type="text" id="cedula" name="cedula_cliente" value = "{{ Cliente.cedula }}">
+                      </td>
+                      <div class="pos">
+                          <td class="botonessv"><input type="submit"  name="boton" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
+                      </div>
+                      <td>
+                          <label class= "textos2" for="name">Cliente</label>
+                          <input class="caja" type="text" id="name" name="nombre_cliente" value = "{{ Cliente.nombre }}">
+                      </td>
+                      {% endif %}
+                    <td>
+                        <label class= "textos2" for="name">Consec</label>
+                        <input class="caja" type="text" name="consec">
+                    </td>
+                </tr>
+            </table>
+            <table id="ventas-b" class="tabla">
+                <tr class="segunda">
+                    <td class="c_producto"><label  class= "textos" for="code_producto">Cod.Producto</label></td>
+                    <td class="n_producto"><label class= "textos" for="n_producto">Nombre Producto</label></td>
+                    <td class="cantidads"><label class= "textos" for="cantidad">Cantidad</label></td>
+                    <td class="v_totals"><label class= "textos" for="total">Vrl.Total</label></td>
+                </tr>
+            <!--tercera Fila-->
+
                 <tr class="segunda">
                     {% with precio_venta=data1.precio_venta|mul:cantidad1 iva=data1.precio_venta|mul:cantidad1|mul:0.19  %}
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto" value="{{data1.codigo_producto}}"></td>
-                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td ><input class="caja" type="text" id="n_producto" name="nombre_producto" value= "{{data1.nombre_producto}}"></td>
                     <td><input type="number" min="1" max="9" step="1" value="{{cantidad1}}" id="cantidad" name="cantidad1"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta"value="{{precio_venta}}"></td>
@@ -241,7 +319,7 @@
                 <!--cuarta Fila-->
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto2"></td>
-                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td><input class="caja" type="text" id="n_producto" name="nombre_producto2"></td>
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad2"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta2"></td>
@@ -249,7 +327,7 @@
                 <!--quinta Fila-->
                 <tr class="segunda">
                     <td><input class="caja" type="text" id="code_producto" name="codigo_producto3"></td>
-                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td><input class="caja" type="text" id="n_producto" name="nombre_producto3"></td>
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3"></td>
@@ -269,16 +347,55 @@
                       <input class="caja" type="text" id="ventamasIva" name="valor_venta" value = "{{ precio_venta|add:iva }}"></td>
                   </tr>
               </table>
-              <table id="ventas-d" class="tabla3">
-                  <tr>
-                      <td  class="botonessv"><input type="button" value="Confirmar"/></td>
-                      {%endwith%}
-              </tr>
-              </table>
+              {%endwith%}
                 {% elif condicional == "lleno2" %}
+		<table id="ventas-a">
+              {% if Cliente != None %}
+                <tr class="primera">
+                    <td>
+                        <label class= "textos2" for="cedula">Cedula</label>
+                        <input class="caja" type="text" id="cedula" name="cedula_cliente" value = "{{ Cliente.cedula }}">
+                    </td>
+                    <div class="pos">
+                        <td class="botonessv"><input type="button"  name="boton" value="Consultar" formaction="{% url "consultarTodo" %}"/></td>
+                    </div>
+                    <td>
+                        <label class= "textos2" for="name">Cliente</label>
+                        <input class="caja" type="text" id="name" name="nombre_cliente" value = "{{ Cliente.nombre }}">
+                    </td>
+                  {% elif Cliente == None %}
+                  <tr class="primera">
+                      <td>
+                          <label class= "textos2" for="cedula">Cedula</label>
+                          <input class="caja" type="text" id="cedula" name="cedula_cliente" value = "{{ Cliente.cedula }}">
+                      </td>
+                      <div class="pos">
+                          <td class="botonessv"><input type="submit"  name="boton" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
+
+                      </div>
+                      <td>
+                          <label class= "textos2" for="name">Cliente</label>
+                          <input class="caja" type="text" id="name" name="nombre_cliente" value = "{{ Cliente.nombre }}">
+                      </td>
+                      {% endif %}
+                    <td>
+                        <label class= "textos2" for="name">Consec</label>
+                        <input class="caja" type="text" name="consec">
+                    </td>
+                </tr>
+            </table>
+            <table id="ventas-b" class="tabla">
+                <tr class="segunda">
+                    <td class="c_producto"><label  class= "textos" for="code_producto">Cod.Producto</label></td>
+                    <td class="n_producto"><label class= "textos" for="n_producto">Nombre Producto</label></td>
+                    <td class="cantidads"><label class= "textos" for="cantidad">Cantidad</label></td>
+                    <td class="v_totals"><label class= "textos" for="total">Vrl.Total</label></td>
+                </tr>
+            <!--tercera Fila-->
+
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto"></td>
-                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td ><input class="caja" type="text" id="n_producto" name="nombre_producto"></td>
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta"></td>
@@ -287,7 +404,7 @@
                 <tr class="segunda">
                     {% with precio_venta=data2.precio_venta|mul:cantidad2 iva=data2.precio_venta|mul:cantidad2|mul:0.19  %}
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto2"value="{{data2.codigo_producto}}"></td>
-                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td><input class="caja" type="text" id="n_producto" name="nombre_producto2"value="{{data2.nombre_producto}}"></td>
                     <td><input type="number" min="1" max="9" step="1" value="{{cantidad2}}" id="cantidad" name="cantidad2"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta2"value="{{precio_venta}}"></td>
@@ -295,7 +412,7 @@
                 <!--quinta Fila-->
                 <tr class="segunda">
                     <td><input class="caja" type="text" id="code_producto" name="codigo_producto3"></td>
-                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td><input class="caja" type="text" id="n_producto" name="nombre_producto3"></td>
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3"></td>
@@ -315,16 +432,54 @@
                       <input class="caja" type="text" id="ventamasIva" name="valor_venta" value = "{{precio_venta|add:iva}}"></td>
                   </tr>
               </table>
-              <table id="ventas-d" class="tabla3">
-                  <tr>
-                      <td  class="botonessv"><input type="button" value="Confirmar"/></td>
-                      {%endwith%}
-              </tr>
-              </table>
+	      {% endwith %}
                 {% elif condicional == "vacio1" %}
+		<table id="ventas-a">
+              {% if Cliente != None %}
+                <tr class="primera">
+                    <td>
+                        <label class= "textos2" for="cedula">Cedula</label>
+                        <input class="caja" type="text" id="cedula" name="cedula_cliente" value = "{{ Cliente.cedula }}">
+                    </td>
+                    <div class="pos">
+                        <td class="botonessv"><input type="button"  name="boton" value="Consultar" formaction="{% url "consultarTodo" %}"/></td>
+                    </div>
+                    <td>
+                        <label class= "textos2" for="name">Cliente</label>
+                        <input class="caja" type="text" id="name" name="nombre_cliente" value = "{{ Cliente.nombre }}">
+                    </td>
+                  {% elif Cliente == None %}
+                  <tr class="primera">
+                      <td>
+                          <label class= "textos2" for="cedula">Cedula</label>
+                          <input class="caja" type="text" id="cedula" name="cedula_cliente" value = "{{ Cliente.cedula }}">
+                      </td>
+                      <div class="pos">
+                          <td class="botonessv"><input type="submit"  name="boton" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
+                      </div>
+                      <td>
+                          <label class= "textos2" for="name">Cliente</label>
+                          <input class="caja" type="text" id="name" name="nombre_cliente" value = "{{ Cliente.nombre }}">
+                      </td>
+                      {% endif %}
+                    <td>
+                        <label class= "textos2" for="name">Consec</label>
+                        <input class="caja" type="text" name="consec">
+                    </td>
+                </tr>
+            </table>
+            <table id="ventas-b" class="tabla">
+                <tr class="segunda">
+                    <td class="c_producto"><label  class= "textos" for="code_producto">Cod.Producto</label></td>
+                    <td class="n_producto"><label class= "textos" for="n_producto">Nombre Producto</label></td>
+                    <td class="cantidads"><label class= "textos" for="cantidad">Cantidad</label></td>
+                    <td class="v_totals"><label class= "textos" for="total">Vrl.Total</label></td>
+                </tr>
+            <!--tercera Fila-->
+
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto"></td>
-                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td ><input class="caja" type="text" id="n_producto" name="nombre_producto"></td>
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta"></td>
@@ -333,7 +488,7 @@
                 <tr class="segunda">
                     {% with precio_venta2=data2.precio_venta|mul:cantidad2 precio_venta3=data3.precio_venta|mul:cantidad3 %}
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto2" value="{{data2.codigo_producto}}"></td>
-                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td><input class="caja" type="text" id="n_producto" name="nombre_producto2" value="{{data2.nombre_producto}}"></td>
                     <td><input type="number" min="1" max="9" step="1" value="{{cantidad2}}" id="cantidad" name="cantidad2"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta2" value="{{precio_venta2}}"></td>
@@ -341,7 +496,7 @@
                 <!--quinta Fila-->
                 <tr class="segunda">
                     <td><input class="caja" type="text" id="code_producto" name="codigo_producto3" value="{{data3.codigo_producto}}"></td>
-                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td><input class="caja" type="text" id="n_producto" name="nombre_producto3" value="{{data3.nombre_producto}}"></td>
                     <td><input type="number" min="1" max="9" step="1" value="{{cantidad3}}" id="cantidad" name="cantidad3"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3" value="{{precio_venta3}}"></td>
@@ -364,16 +519,54 @@
                       {%endwith%}
                   </tr>
               </table>
-              <table id="ventas-d" class="tabla3">
-                  <tr>
-                      <td  class="botonessv"><input type="button" value="Confirmar"/></td>
-              </tr>
-              </table>
-                {% elif condicional == "vacio2" %}
+              {% elif condicional == "vacio2" %}
+	      <table id="ventas-a">
+              {% if Cliente != None %}
+                <tr class="primera">
+                    <td>
+                        <label class= "textos2" for="cedula">Cedula</label>
+                        <input class="caja" type="text" id="cedula" name="cedula_cliente" value = "{{ Cliente.cedula }}">
+                    </td>
+                    <div class="pos">
+                        <td class="botonessv"><input type="button"  name="boton" value="Consultar" formaction="{% url "consultarTodo" %}"/></td>
+                    </div>
+                    <td>
+                        <label class= "textos2" for="name">Cliente</label>
+                        <input class="caja" type="text" id="name" name="nombre_cliente" value = "{{ Cliente.nombre }}">
+                    </td>
+                  {% elif Cliente == None %}
+                  <tr class="primera">
+                      <td>
+                          <label class= "textos2" for="cedula">Cedula</label>
+                          <input class="caja" type="text" id="cedula" name="cedula_cliente" value = "{{ Cliente.cedula }}">
+                      </td>
+                      <div class="pos">
+                          <td class="botonessv"><input type="submit"  name="boton" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
+                      </div>
+                      <td>
+                          <label class= "textos2" for="name">Cliente</label>
+                          <input class="caja" type="text" id="name" name="nombre_cliente" value = "{{ Cliente.nombre }}">
+                      </td>
+                      {% endif %}
+                    <td>
+                        <label class= "textos2" for="name">Consec</label>
+                        <input class="caja" type="text" name="consec">
+                    </td>
+                </tr>
+            </table>
+            <table id="ventas-b" class="tabla">
+                <tr class="segunda">
+                    <td class="c_producto"><label  class= "textos" for="code_producto">Cod.Producto</label></td>
+                    <td class="n_producto"><label class= "textos" for="n_producto">Nombre Producto</label></td>
+                    <td class="cantidads"><label class= "textos" for="cantidad">Cantidad</label></td>
+                    <td class="v_totals"><label class= "textos" for="total">Vrl.Total</label></td>
+                </tr>
+            <!--tercera Fila-->
+
                 <tr class="segunda">
                     {% with precio_venta1=data1.precio_venta|mul:cantidad1 precio_venta3=data3.precio_venta|mul:cantidad3 %}
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto" value="{{data1.codigo_producto}}"></td>
-                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td ><input class="caja" type="text" id="n_producto" name="nombre_producto" value="{{data1.nombre_producto}}"></td>
                     <td><input type="number" min="1" max="9" step="1" value="{{cantidad1}}" id="cantidad" name="cantidad1"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta" value="{{precio_venta1}}"></td>
@@ -381,7 +574,7 @@
                 <!--cuarta Fila-->
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto2"></td>
-                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td><input class="caja" type="text" id="n_producto" name="nombre_producto2"></td>
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad2"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta2"></td>
@@ -389,7 +582,7 @@
                 <!--quinta Fila-->
                 <tr class="segunda">
                     <td><input class="caja" type="text" id="code_producto" name="codigo_producto3" value="{{data3.codigo_producto}}"></td>
-                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td><input class="caja" type="text" id="n_producto" name="nombre_producto3" value="{{data3.nombre_producto}}"></td>
                     <td><input type="number" min="1" max="9" step="1" value="{{cantidad3}}" id="cantidad" name="cantidad3"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3" value="{{precio_venta3}}"></td>
@@ -412,16 +605,54 @@
                   {%endwith%}
                     </tr>
               </table>
-              <table id="ventas-d" class="tabla3">
-                  <tr>
-                      <td  class="botonessv"><input type="button" value="Confirmar"/></td>
-              </tr>
-              </table>
-                {% elif condicional == "vacio3" %}
+              {% elif condicional == "vacio3" %}
+	      <table id="ventas-a">
+              {% if Cliente != None %}
+                <tr class="primera">
+                    <td>
+                        <label class= "textos2" for="cedula">Cedula</label>
+                        <input class="caja" type="text" id="cedula" name="cedula_cliente" value = "{{ Cliente.cedula }}">
+                    </td>
+                    <div class="pos">
+                        <td class="botonessv"><input type="button"  name="boton" value="Consultar" formaction="{% url "consultarTodo" %}"/></td>
+                    </div>
+                    <td>
+                        <label class= "textos2" for="name">Cliente</label>
+                        <input class="caja" type="text" id="name" name="nombre_cliente" value = "{{ Cliente.nombre }}">
+                    </td>
+                  {% elif Cliente == None %}
+                  <tr class="primera">
+                      <td>
+                          <label class= "textos2" for="cedula">Cedula</label>
+                          <input class="caja" type="text" id="cedula" name="cedula_cliente" value = "{{ Cliente.cedula }}">
+                      </td>
+                      <div class="pos">
+                          <td class="botonessv"><input type="submit"  name="boton" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
+                      </div>
+                      <td>
+                          <label class= "textos2" for="name">Cliente</label>
+                          <input class="caja" type="text" id="name" name="nombre_cliente" value = "{{ Cliente.nombre }}">
+                      </td>
+                      {% endif %}
+                    <td>
+                        <label class= "textos2" for="name">Consec</label>
+                        <input class="caja" type="text" name="consec">
+                    </td>
+                </tr>
+            </table>
+            <table id="ventas-b" class="tabla">
+                <tr class="segunda">
+                    <td class="c_producto"><label  class= "textos" for="code_producto">Cod.Producto</label></td>
+                    <td class="n_producto"><label class= "textos" for="n_producto">Nombre Producto</label></td>
+                    <td class="cantidads"><label class= "textos" for="cantidad">Cantidad</label></td>
+                    <td class="v_totals"><label class= "textos" for="total">Vrl.Total</label></td>
+                </tr>
+            <!--tercera Fila-->
+
                 <tr class="segunda">
                     {% with precio_venta1=data1.precio_venta|mul:cantidad1 precio_venta2=data2.precio_venta|mul:cantidad2 %}
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto" value= "{{data1.codigo_producto}}"></td>
-                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td ><input class="caja" type="text" id="n_producto" name="nombre_producto" value="{{data1.nombre_producto}}"></td>
                     <td><input type="number" min="1" max="9" step="{{cantidad1}}" value="1" id="cantidad" name="cantidad1"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta" value="{{precio_venta1}}"></td>
@@ -429,7 +660,7 @@
                 <!--cuarta Fila-->
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto2" value="{{data2.codigo_producto}}"></td>
-                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td><input class="caja" type="text" id="n_producto" name="nombre_producto2" value="{{data2.nombre_producto}}"></td>
                     <td><input type="number" min="1" max="9" step="1" value="{{cantidad2}}" id="cantidad" name="cantidad2"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta2" value="{{precio_venta2}}"></td>
@@ -437,7 +668,7 @@
                 <!--quinta Fila-->
                 <tr class="segunda">
                     <td><input class="caja" type="text" id="code_producto" name="codigo_producto3"></td>
-                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td><input class="caja" type="text" id="n_producto" name="nombre_producto3"></td>
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3"></td>
@@ -460,16 +691,54 @@
                   {%endwith%}
                     </tr>
               </table>
-              <table id="ventas-d" class="tabla3">
-                  <tr>
-                      <td  class="botonessv"><input type="button" value="Confirmar"/></td>
-              </tr>
-              </table>
                 {% elif condicional == "todosllenos" %}
+		<table id="ventas-a">
+              {% if Cliente != None %}
+                <tr class="primera">
+                    <td>
+                        <label class= "textos2" for="cedula">Cedula</label>
+                        <input class="caja" type="text" id="cedula" name="cedula_cliente" value = "{{ Cliente.cedula }}">
+                    </td>
+                    <div class="pos">
+                        <td class="botonessv"><input type="button"  name="boton" value="Consultar" formaction="{% url "consultarTodo" %}"/></td>
+                    </div>
+                    <td>
+                        <label class= "textos2" for="name">Cliente</label>
+                        <input class="caja" type="text" id="name" name="nombre_cliente" value = "{{ Cliente.nombre }}">
+                    </td>
+                  {% elif Cliente == None %}
+                  <tr class="primera">
+                      <td>
+                          <label class= "textos2" for="cedula">Cedula</label>
+                          <input class="caja" type="text" id="cedula" name="cedula_cliente" value = "{{ Cliente.cedula }}">
+                      </td>
+                      <div class="pos">
+                          <td class="botonessv"><input type="submit"  name="boton" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
+                      </div>
+                      <td>
+                          <label class= "textos2" for="name">Cliente</label>
+                          <input class="caja" type="text" id="name" name="nombre_cliente" value = "{{ Cliente.nombre }}">
+                      </td>
+                      {% endif %}
+                    <td>
+                        <label class= "textos2" for="name">Consec</label>
+                        <input class="caja" type="text" name="consec">
+                    </td>
+                </tr>
+            </table>
+            <table id="ventas-b" class="tabla">
+                <tr class="segunda">
+                    <td class="c_producto"><label  class= "textos" for="code_producto">Cod.Producto</label></td>
+                    <td class="n_producto"><label class= "textos" for="n_producto">Nombre Producto</label></td>
+                    <td class="cantidads"><label class= "textos" for="cantidad">Cantidad</label></td>
+                    <td class="v_totals"><label class= "textos" for="total">Vrl.Total</label></td>
+                </tr>
+            <!--tercera Fila-->
+
                 {% with precio_venta1=data1.precio_venta|mul:cantidad1 precio_venta2=data2.precio_venta|mul:cantidad2 precio_venta3=data3.precio_venta|mul:cantidad3 %}
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto" value= "{{data1.codigo_producto}}"></td>
-                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td ><input class="caja" type="text" id="n_producto" name="nombre_producto" value="{{data1.nombre_producto}}"></td>
                     <td><input type="number" min="1" max="9" step="1" value="{{cantidad1}}" id="cantidad" name="cantidad1"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta" value="{{ precio_venta1 }}"></td>
@@ -477,7 +746,7 @@
                 <!--cuarta Fila-->
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto2" value="{{data2.codigo_producto}}"></td>
-                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td><input class="caja" type="text" id="n_producto" name="nombre_producto2" value="{{data2.nombre_producto}}"></td>
                     <td><input type="number" min="1" max="9" step="1" value="{{cantidad2}}" id="cantidad" name="cantidad2"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta2" value="{{precio_venta2}}"></td>
@@ -485,7 +754,7 @@
                 <!--quinta Fila-->
                 <tr class="segunda">
                     <td><input class="caja" type="text" id="code_producto" name="codigo_producto3" value="{{data3.codigo_producto}}"></td>
-                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td><input class="caja" type="text" id="n_producto" name="nombre_producto3" value="{{data3.nombre_producto}}"></td>
                     <td><input type="number" min="1" max="9" step="1" value="{{cantidad3}}" id="cantidad" name="cantidad3"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3" value= "{{precio_venta3}}"></td>
@@ -509,15 +778,53 @@
                   {% endwith %}
 
               </table>
-              <table id="ventas-d" class="tabla3">
-                  <tr>
-                      <td  class="botonessv"><input type="button" value="Confirmar"/></td>
-              </tr>
-              </table>
                 {% elif condicional == None %}
+		<table id="ventas-a">
+              {% if Cliente != None %}
+                <tr class="primera">
+                    <td>
+                        <label class= "textos2" for="cedula">Cedula</label>
+                        <input class="caja" type="text" id="cedula" name="cedula_cliente" value = "{{ Cliente.cedula }}">
+                    </td>
+                    <div class="pos">
+                        <td class="botonessv"><input type="button"  name="boton" value="Consultar" formaction="{% url "consultarTodo" %}"/></td>
+                    </div>
+                    <td>
+                        <label class= "textos2" for="name">Cliente</label>
+                        <input class="caja" type="text" id="name" name="nombre_cliente" value = "{{ Cliente.nombre }}">
+                    </td>
+                  {% elif Cliente == None %}
+                  <tr class="primera">
+                      <td>
+                          <label class= "textos2" for="cedula">Cedula</label>
+                          <input class="caja" type="text" id="cedula" name="cedula_cliente" value = "{{ Cliente.cedula }}">
+                      </td>
+                      <div class="pos">
+                          <td class="botonessv"><input type="submit"  name="boton" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
+                      </div>
+                      <td>
+                          <label class= "textos2" for="name">Cliente</label>
+                          <input class="caja" type="text" id="name" name="nombre_cliente" value = "{{ Cliente.nombre }}">
+                      </td>
+                      {% endif %}
+                    <td>
+                        <label class= "textos2" for="name">Consec</label>
+                        <input class="caja" type="text" name="consec">
+                    </td>
+                </tr>
+            </table>
+            <table id="ventas-b" class="tabla">
+                <tr class="segunda">
+                    <td class="c_producto"><label  class= "textos" for="code_producto">Cod.Producto</label></td>
+                    <td class="n_producto"><label class= "textos" for="n_producto">Nombre Producto</label></td>
+                    <td class="cantidads"><label class= "textos" for="cantidad">Cantidad</label></td>
+                    <td class="v_totals"><label class= "textos" for="total">Vrl.Total</label></td>
+                </tr>
+            <!--tercera Fila-->
+
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto"></td>
-                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td ><input class="caja" type="text" id="n_producto" name="nombre_producto"></td>
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta"></td>
@@ -525,7 +832,7 @@
                 <!--cuarta Fila-->
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto2"></td>
-                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td  class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td><input class="caja" type="text" id="n_producto" name="nombre_producto2"></td>
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad2"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta2"></td>
@@ -533,7 +840,7 @@
                 <!--quinta Fila-->
                 <tr class="segunda">
                     <td><input class="caja" type="text" id="code_producto" name="codigo_producto3"></td>
-                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarProductos" %}"/></td>
+                    <td class="botonessv"><input type="submit" value="Consultar" formaction = "{% url "consultarTodo" %}"/></td>
                     <td><input class="caja" type="text" id="n_producto" name="nombre_producto3"></td>
                     <td><input type="number" min="1" max="9" step="1" value="1" id="cantidad" name="cantidad3"></td>
                     <td class="v_total"><input class="caja" type="text" id="total" name="total_venta3"></td>
@@ -553,12 +860,13 @@
                       <input class="caja" type="text" id="ventamasIva" name="valor_venta" ></td>
                   </tr>
               </table>
-              <table id="ventas-d" class="tabla3">
+            {% endif %}
+	     <table id="ventas-d" class="tabla3">
                   <tr>
-                      <td  class="botonessv"><input type="button" value="Confirmar"/></td>
+		    <td  class="botonessv"><input type="button" value="Confirmar" formaction="{% url "subirVenta" %}"/></td>
               </tr>
               </table>
-            {% endif %}
+
 
         </div>
       </form>
