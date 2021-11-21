@@ -196,98 +196,75 @@ def subirVenta(request):
         }
 
     if codigo_producto1 == '':
-        response2 = requests.get(f'http://localhost:8001/api/productos/{codigo_producto2}/')
-        data2 = response2.json()
-        proveedor2 = data2['nitproveedor']
-        response3 = requests.get(f'http://localhost:8001/api/productos/{codigo_producto3}/')
-        data3 = response2.json()
-        proveedor3 = data3['nitproveedor']
 
-        response = requests.post('http:localhost:8004/api/ventas/', data=dataVenta2)
+        response = requests.post('http:localhost:8004/api/ventas/', json=dataVenta2)
 
-        response1 = requests.post('http:localhost:8005/api/detalleventas/', data=dataDetalle2)
+        response1 = requests.post('http:localhost:8005/api/detalleventas/', json=dataDetalle2)
 
-        response2 = requests.post('http:localhost:8004/api/ventas/', data=dataVenta3)
+        response2 = requests.post('http:localhost:8004/api/ventas/', json=dataVenta3)
 
-        response3 = requests.post('http:localhost:8005/api/detalleventas/', data=dataDetalle3)
+        response3 = requests.post('http:localhost:8005/api/detalleventas/', json=dataDetalle3)
+        exito = True
     elif codigo_producto2 == '':
         response1 = requests.get(f'http://localhost:8001/{codigo_producto1}/')
-        data1 = response1.json()
-        proveedor1 = data1['nitproveedor']
-        response3 = requests.get(f'http://localhost:8001/{codigo_producto3}/')
-        data3 = response3.json()
-        proveedor3 = data3['nitproveedor']
 
-        response = requests.post('http:localhost:8004/api/ventas/', data=dataVenta1)
+        response = requests.post('http:localhost:8004/api/ventas/', json=dataVenta1)
 
 
-        response2 = requests.post('http:localhost:8004/api/ventas/', data=dataVenta3)
+        response2 = requests.post('http:localhost:8004/api/ventas/', json=dataVenta3)
 
-        response3 = requests.post('http:localhost:8005/api/detalleventas/', data=dataVenta3)
+        response3 = requests.post('http:localhost:8005/api/detalleventas/', json=dataVenta3)
+        exito = True
     elif codigo_producto3 == '':
-        response1 = requests.get(f'http://localhost:8001/{codigo_producto1}/')
-        data1 = response1.json()
-        proveedor1 = data1['nitproveedor']
-        response2 = requests.get(f'http://localhost:8001/{codigo_producto2}/')
-        data2 = response2.json()
-        proveedor2 = data2['nitproveedor']
 
-        response = requests.post('http:localhost:8004/api/ventas/', data=dataVenta1)
+        response = requests.post('http:localhost:8004/api/ventas/', json=dataVenta1)
 
-        response = requests.post('http:localhost:8005/api/detalleventas/', data=dataVenta1)
+        response = requests.post('http:localhost:8005/api/detalleventas/', json=dataVenta1)
 
 
-        response = requests.post('http:localhost:8004/api/ventas/', data=dataVenta2)
+        response = requests.post('http:localhost:8004/api/ventas/', json=dataVenta2)
 
-        response = requests.post('http:localhost:8005/api/detalleventas/', data=dataVenta2)
+        response = requests.post('http:localhost:8005/api/detalleventas/', json=dataVenta2)
+        exito = True
     elif codigo_producto2 == '' and codigo_producto3 == '':
-        response1 = requests.get(f'http://localhost:8001/{codigo_producto1}/')
-        data1 = response1.json()
-        proveedor1 = data1['nitproveedor']
 
-        response = requests.post('http:localhost:8004/api/ventas/', data=dataVenta1)
+        response = requests.post('http:localhost:8004/api/ventas/', json=dataVenta1)
 
 
-        response1 = requests.post('http:localhost:8005/api/detalleventas/', data=dataDetalle1)
-
+        response1 = requests.post('http:localhost:8005/api/detalleventas/', json=dataDetalle1)
+        exito = True
     elif codigo_producto1 == '' and codigo_producto3 == '':
-        response2 = requests.get(f'http://localhost:8001/{codigo_producto2}/')
-        data2 = response2.json()
-        proveedor2 = data2['nitproveedor']
 
-        response = requests.post('http:localhost:8004/api/ventas/', data=dataVenta2)
+        response = requests.post('http:localhost:8004/api/ventas/', json=dataVenta2)
 
-        response = requests.post('http:localhost:8005/api/detalleventas/', data=dataDetalle2)
-
+        response = requests.post('http:localhost:8005/api/detalleventas/', json=dataDetalle2)
+        exito = True
     elif codigo_producto1 == '' and codigo_producto2 == '':
-        response3 = requests.get(f'http://localhost:8001/{codigo_producto3}/')
-        data3 = response3.json()
-        proveedor3 = data3['nitproveedor']
 
-        response = requests.post('http:localhost:8004/api/ventas/', data=dataVenta3)
+        response = requests.post('http:localhost:8004/api/ventas/', json=dataVenta3)
 
 
-        response = requests.post('http:localhost:8005/api/detalleventas/', data=dataDetalle3)
-
+        response = requests.post('http:localhost:8005/api/detalleventas/', json=dataDetalle3)
+        exito = True
     elif (codigo_producto1 == '' and codigo_producto2 == '') and codigo_producto3 == '':
-        pass
+        exito = False
     else:
 
 
-        response = requests.post("http://localhost:8004/api/ventas/",data=dataVenta1)
+        response = requests.post("http://localhost:8004/api/ventas/",json=dataVenta1)
 
 
-        response1 = requests.post("http://localhost:8005/api/detalleventas/", data=dataDetalle1)
+        response1 = requests.post("http://localhost:8005/api/detalleventas/", json=dataDetalle1)
 
 
-        response2 = requests.post('http://localhost:8004/api/ventas/', data=dataVenta2)
+        response2 = requests.post('http://localhost:8004/api/ventas/', json=dataVenta2)
 
 
-        response3 = requests.post('http://localhost:8005/api/detalleventas/', data=dataDetalle2)
+        response3 = requests.post('http://localhost:8005/api/detalleventas/', json=dataDetalle2)
 
 
-        response4 = requests.post('http://localhost:8004/api/ventas/', data=dataVenta3)
+        response4 = requests.post('http://localhost:8004/api/ventas/', json=dataVenta3)
 
-        response5 = requests.post('http://localhost:8005/api/detalleventas/', data=dataDetalle3)
-
-    return render(request, 'ventas/ventas.html', {'exito' : 'La venta fue registrada con exito'})
+        response5 = requests.post('http://localhost:8005/api/detalleventas/', json=dataDetalle3)
+        exito = True
+    return render(request, 'ventas/ventas.html', {'exito' : exito})

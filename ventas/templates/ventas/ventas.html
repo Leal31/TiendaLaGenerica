@@ -93,6 +93,13 @@
         <form method = 'POST'>
           {% csrf_token %}
         <div class="ctnvent">
+          <script>
+          {% if exito == True %}
+          alert("La venta fue registrada con exito");
+          {% else %}
+          alert("No se realizo la venta correctamente");
+          {% endif %}
+          </script>
                         <!--tercera Fila-->
               {% if condicional == "todovacio" %}
 	      <table id="ventas-a">
@@ -140,9 +147,7 @@
 
               <script>
                 alert("{{ mensaje }}")
-                {% if exito %}
-                alert("{{ exito }}")
-                {% endif %}
+
               </script>
                 <tr class="segunda">
                     <td><input  class="caja" type="text" id="code_producto" name="codigo_producto"></td>
