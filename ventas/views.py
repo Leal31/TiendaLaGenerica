@@ -129,71 +129,35 @@ def subirVenta(request):
     total_compra=request.POST.get('total_venta')
     iva_venta=request.POST.get('ivaventa')
     total_venta=request.POST.get('valor_venta')
-    responsep1 = requests.get(f'http://localhost:8001/api/productos/{codigo_producto1}/')
-    data1 = responsep1.json()
-    proveedor1 = data1['nitproveedor']
-    responsep2 = requests.get(f'http://localhost:8001/api/productos/{codigo_producto2}/')
-    data2 = responsep2.json()
-    proveedor2 = data2['nitproveedor']
-    responsep3 = requests.get(f'http://localhost:8001/api/productos/{codigo_producto3}/')
-    data3 = responsep3.json()
-    proveedor3 = data3['nitproveedor']
-    print(nombre_cliente, consecutivo, proveedor1, nombre_producto1, cantidad1, precio1)
 
-    dataVenta1={
-        "codigo_venta": "1",
-        "nombre_cliente": nombre_cliente,
-        "consecutivo": consecutivo,
-        "nitproveedor": proveedor1,
-        "nombre_producto": nombre_producto1,
-        "cantidad_producto": cantidad1,
-        "precio_producto": precio1
-        }
-    dataDetalle1 = {
-        "codigo_venta": 1,
-        "codigo_producto": codigo_producto1,
-        "cedula_cliente": cedula_cliente,
-        "consecutivo": consecutivo,
-        "iva_compra": iva_venta,
-        "precio_compra": total_compra,
-        "precio_venta": total_venta
-        }
-    dataVenta2={
-        "codigo_venta": 2,
-        "nombre_cliente": nombre_cliente,
-        "consecutivo": consecutivo,
-        "nitproveedor": proveedor2,
-        "nombre_producto": nombre_producto2,
-        "cantidad_producto": cantidad2,
-        "precio_producto": precio2
-        }
-    dataDetalle2 = {
-        "codigo_venta": 2,
-        "codigo_producto": codigo_producto2,
-        "cedula_cliente": cedula_cliente,
-        "consecutivo": consecutivo,
-        "iva_compra": iva_venta,
-        "precio_compra": total_compra,
-        "precio_venta": total_venta
-        }
-    dataVenta3={
-        "codigo_venta": 3,
-        "nombre_cliente": nombre_cliente,
-        "consecutivo": consecutivo,
-        "nitproveedor": proveedor3,
-        "nombre_producto": nombre_producto3,
-        "cantidad_producto": cantidad3,
-        "precio_producto": precio3
-        }
-    dataDetalle3 = {
-        "codigo_venta": 3,
-        "codigo_producto": codigo_producto3,
-        "cedula_cliente": cedula_cliente,
-        "consecutivo": consecutivo,
-        "iva_compra": iva_venta,
-        "precio_compra": total_compra,
-        "precio_venta": total_venta
-        }
+    data3productos = {
+    "cedula_cliente": cedula_cliente,
+    "codigo_venta": consecutivo,
+    "detalle_venta": [{
+                    "cantidad_producto": cantidad1,
+                    "codigo_producto": codigo_producto1, 
+                    "valor_total": precio1,
+                    "valor_venta": precio1,
+                    "valoriva": 19.0
+                    }, {
+                    "cantidad_producto": cantidad2,
+                    "codigo_producto": codigo_producto2,
+                    "valor_total": precio2,
+                    "valor_venta": precio2,
+                    "valoriva": 19.0
+                    }, {
+                    "cantidad_producto": cantidad3,
+                    "codigo_producto": codigo_producto3,
+                    "valor_total": precio3,
+                    "valor_venta": precio3,
+                    "valoriva": 19.0
+                    }],
+    "iva_venta": iva_venta,
+    "total_venta": total_compra,
+    "valor_venta": total_venta
+}             
+                
+            
 
     if codigo_producto1 == '':
 
@@ -249,22 +213,7 @@ def subirVenta(request):
     elif (codigo_producto1 == '' and codigo_producto2 == '') and codigo_producto3 == '':
         exito = False
     else:
+        response = requests.post("http://localhost:8004/api/ventas/",json=data3productos)
 
-
-        response = requests.post("http://localhost:8004/api/ventas/",json=dataVenta1)
-
-
-        response1 = requests.post("http://localhost:8005/api/detalleventas/", json=dataDetalle1)
-
-
-        response2 = requests.post('http://localhost:8004/api/ventas/', json=dataVenta2)
-
-
-        response3 = requests.post('http://localhost:8005/api/detalleventas/', json=dataDetalle2)
-
-
-        response4 = requests.post('http://localhost:8004/api/ventas/', json=dataVenta3)
-
-        response5 = requests.post('http://localhost:8005/api/detalleventas/', json=dataDetalle3)
         exito = True
     return render(request, 'ventas/ventas.html', {'exito' : exito})
