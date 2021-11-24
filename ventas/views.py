@@ -160,59 +160,162 @@ def subirVenta(request):
             
 
     if codigo_producto1 == '':
+        data2productos = {
+        "cedula_cliente": cedula_cliente,
+        "codigo_venta": consecutivo,
+        "detalle_venta": [
+                    {
+                    "cantidad_producto": cantidad2,
+                    "codigo_producto": codigo_producto2,
+                    "valor_total": precio2,
+                    "valor_venta": precio2,
+                    "valoriva": 19.0
+                    }, {
+                    "cantidad_producto": cantidad3,
+                    "codigo_producto": codigo_producto3,
+                    "valor_total": precio3,
+                    "valor_venta": precio3,
+                    "valoriva": 19.0
+                    }],
+        "iva_venta": iva_venta,
+        "total_venta": total_compra,
+        "valor_venta": total_venta
+        }  
 
-        response = requests.post('http:localhost:8004/api/ventas/', json=dataVenta2)
+        response = requests.post('http://localhost:8004/api/ventas/', json=data2productos)
 
-        response1 = requests.post('http:localhost:8005/api/detalleventas/', json=dataDetalle2)
-
-        response2 = requests.post('http:localhost:8004/api/ventas/', json=dataVenta3)
-
-        response3 = requests.post('http:localhost:8005/api/detalleventas/', json=dataDetalle3)
         exito = True
     elif codigo_producto2 == '':
-        response1 = requests.get(f'http://localhost:8001/{codigo_producto1}/')
+        data2productos = {
+        "cedula_cliente": cedula_cliente,
+        "codigo_venta": consecutivo,
+        "detalle_venta": [
+                    {
+                    "cantidad_producto": cantidad1,
+                    "codigo_producto": codigo_producto1,
+                    "valor_total": precio1,
+                    "valor_venta": precio1,
+                    "valoriva": 19.0
+                    }, {
+                    "cantidad_producto": cantidad3,
+                    "codigo_producto": codigo_producto3,
+                    "valor_total": precio3,
+                    "valor_venta": precio3,
+                    "valoriva": 19.0
+                    }],
+        "iva_venta": iva_venta,
+        "total_venta": total_compra,
+        "valor_venta": total_venta
+        }
 
-        response = requests.post('http:localhost:8004/api/ventas/', json=dataVenta1)
+        response = requests.post("http://localhost:8004/api/ventas/", json=data2productos)
 
-
-        response2 = requests.post('http:localhost:8004/api/ventas/', json=dataVenta3)
-
-        response3 = requests.post('http:localhost:8005/api/detalleventas/', json=dataVenta3)
         exito = True
     elif codigo_producto3 == '':
-
-        response = requests.post('http:localhost:8004/api/ventas/', json=dataVenta1)
-
-        response = requests.post('http:localhost:8005/api/detalleventas/', json=dataVenta1)
-
-
-        response = requests.post('http:localhost:8004/api/ventas/', json=dataVenta2)
-
-        response = requests.post('http:localhost:8005/api/detalleventas/', json=dataVenta2)
+        data2productos = {
+        "cedula_cliente": cedula_cliente,
+        "codigo_venta": consecutivo,
+        "detalle_venta": [
+                    {
+                    "cantidad_producto": cantidad1,
+                    "codigo_producto": codigo_producto1,
+                    "valor_total": precio1,
+                    "valor_venta": precio1,
+                    "valoriva": 19.0
+                    }, {
+                    "cantidad_producto": cantidad2,
+                    "codigo_producto": codigo_producto2,
+                    "valor_total": precio2,
+                    "valor_venta": precio2,
+                    "valoriva": 19.0
+                    }],
+        "iva_venta": iva_venta,
+        "total_venta": total_compra,
+        "valor_venta": total_venta
+        }
+        response = requests.post("http://localhost:8004/api/ventas/", json=data2productos)
         exito = True
     elif codigo_producto2 == '' and codigo_producto3 == '':
+        data1producto = {
+        "cedula_cliente": cedula_cliente,
+        "codigo_venta": consecutivo,
+        "detalle_venta": [{"cantidad_producto": cantidad1, "codigo_producto": codigo_producto1, "valor_total": precio1, "valor_venta": precio1, "valoriva": 19.0}],
+        "iva_venta": iva_venta,
+        "total_venta": total_compra,
+        "valor_venta": total_venta
+        }
 
-        response = requests.post('http:localhost:8004/api/ventas/', json=dataVenta1)
-
-
-        response1 = requests.post('http:localhost:8005/api/detalleventas/', json=dataDetalle1)
+        response = requests.post("http://localhost:8004/api/ventas/", json = data1producto)
         exito = True
     elif codigo_producto1 == '' and codigo_producto3 == '':
+        data1producto = {
+        "cedula_cliente": cedula_cliente,
+        "codigo_venta": consecutivo,
+        "detalle_venta": [
+                    {
+                    "cantidad_producto": cantidad2,
+                    "codigo_producto": codigo_producto2,
+                    "valor_total": precio2,
+                    "valor_venta": precio2,
+                    "valoriva": 19.0
+                    }
+                    ],
+        "iva_venta": iva_venta,
+        "total_venta": total_compra,
+        "valor_venta": total_venta
+        }
+        response = requests.post("http://localhost:8004/api/ventas/", json=data1producto)
 
-        response = requests.post('http:localhost:8004/api/ventas/', json=dataVenta2)
-
-        response = requests.post('http:localhost:8005/api/detalleventas/', json=dataDetalle2)
         exito = True
     elif codigo_producto1 == '' and codigo_producto2 == '':
+        data1producto = {
+        "cedula_cliente": cedula_cliente,
+        "codigo_venta": consecutivo,
+        "detalle_venta": [
+                    {
+                    "cantidad_producto": cantidad3,
+                    "codigo_producto": codigo_producto3,
+                    "valor_total": precio3,
+                    "valor_venta": precio3,
+                    "valoriva": 19.0
+                    }
+                    ],
+        "iva_venta": iva_venta,
+        "total_venta": total_compra,
+        "valor_venta": total_venta
+        }
+        response = requests.post("http://localhost:8004/api/ventas/", json=data1producto)
 
-        response = requests.post('http:localhost:8004/api/ventas/', json=dataVenta3)
-
-
-        response = requests.post('http:localhost:8005/api/detalleventas/', json=dataDetalle3)
         exito = True
     elif (codigo_producto1 == '' and codigo_producto2 == '') and codigo_producto3 == '':
         exito = False
     else:
+        data3productos = {
+        "cedula_cliente": cedula_cliente,
+        "codigo_venta": consecutivo,
+        "detalle_venta": [{
+                    "cantidad_producto": cantidad1,
+                    "codigo_producto": codigo_producto1, 
+                    "valor_total": precio1,
+                    "valor_venta": precio1,
+                    "valoriva": 19.0
+                    }, {
+                    "cantidad_producto": cantidad2,
+                    "codigo_producto": codigo_producto2,
+                    "valor_total": precio2,
+                    "valor_venta": precio2,
+                    "valoriva": 19.0
+                    }, {
+                    "cantidad_producto": cantidad3,
+                    "codigo_producto": codigo_producto3,
+                    "valor_total": precio3,
+                    "valor_venta": precio3,
+                    "valoriva": 19.0
+                    }],
+        "iva_venta": iva_venta,
+        "total_venta": total_compra,
+        "valor_venta": total_venta
+        }
         response = requests.post("http://localhost:8004/api/ventas/",json=data3productos)
 
         exito = True
