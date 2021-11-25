@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'ventas.apps.VentasConfig',
     'mathfilters',
     'rest_framework',
+    'reportes.apps.ReportesConfig',
 ]
 
 MIDDLEWARE = [
