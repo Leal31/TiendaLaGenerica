@@ -11,3 +11,8 @@ def listadoclientes(request):
     data= response.json()
     print(response.json())
     return render(request, "reportes/listadoclientes.html", {"data": data})
+def ventaclientes(request):
+    response = requests.get('http://localhost:8002/api/ventas/')
+    data= response.json()
+    print(response.json())
+    return render(request, "reportes/listadoclientes.html")
