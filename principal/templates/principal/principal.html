@@ -17,17 +17,17 @@
             </div>
             <ul class="nav-links">
                 <li>
-                    <a href="{% url "productos" %}">
-                        <i class="bx bx-cart"></i>
+                    <a href="{%url "productos"%}" >
+                        <i class='bx bx-cart'></i>
                         <span class="link_name">Productos</span>
                     </a>
                     <ul class="sub-menu blank">
-                        <li><a class="link_name" href="{% url "productos" %}">Productos</a></li>
+                        <li><a class="link_name" href="{%url "productos"%}" >Productos</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="{% url "clientes" %}">
-                        <i class="bx bxs-group"></i>
+                        <i class='bx bxs-group' ></i>
                         <span class="link_name">Clientes</span>
                     </a>
                     <ul class="sub-menu blank">
@@ -36,21 +36,30 @@
                 </li>
                 <li>
                     <li>
-                        <a href="{% url "proveedores" %}">
+                        <a href="{% url 'proveedores' %}">
                             <i class='bx bx-store-alt'></i>
                             <span class="link_name">Proveedores</span>
                         </a>
                         <ul class="sub-menu blank">
-                            <li><a class="link_name" href="{% url "proveedores" %}">Proveedores</a></li>
+                            <li><a class="link_name" href="{% url 'proveedores' %}">Proveedores</a></li>
                         </ul>
                 </li>
                 <li>
                     <a href="{% url 'ventas' %}">
-                        <i class="bx bxs-book"></i>
+                        <i class='bx bxs-book' ></i>
                         <span class="link_name">Ventas</span>
                     </a>
                     <ul class="sub-menu blank">
                         <li><a class="link_name" href="{% url 'ventas' %}">Ventas</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{%url 'reportes'%}">
+                        <i class='bx bxs-book-content' ></i>
+                        <span class="link_name">Reportes</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="{%url 'reportes'%}">Reportes</a></li>
                     </ul>
                 </li>
                 <li>
