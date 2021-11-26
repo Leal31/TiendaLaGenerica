@@ -117,13 +117,15 @@
                           </tr>
                         </thead>
                         <tbody>
+                            {%for i in data%}
                           <tr>
-                            <th>...</th>
-                            <td>...</td>
-                            <td>...</td>
-                            <td>...</td>
-                            <td>...</td>
+                            <td>{{'i['cedula']'}}</td>
+                            <td>{{i['nombre']}}</td>
+                            <td>{{i['email']}}</td>
+                            <td>{{i['direccion']}}</td>
+                            <td>{{i['telefono']}}</td>
                           </tr>
+                          {%endfor%}
                           <tr>
                             <th>...</th>
                             <td>...</td>
