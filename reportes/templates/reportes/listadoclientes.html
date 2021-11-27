@@ -95,14 +95,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 align-items-center btn">
-                        <a href="listadoclientes.html">
+		      <a href="{%url "listadoclientes"%}">
                             <div class="botones">
                                 <input type="submit" name="boton" value="Listado de Clientes" />
                             </div>
                         </a>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 btn">
-                        <a href="ventasporcli.html">
+                        <a href="">
                             <div class="botones">
                                 <input type="submit" name="boton" value="Ventas Por Cliente" />
                             </div>
@@ -129,7 +129,7 @@
                         <tbody>
                             {%for i in data%}
                           <tr>
-                            <td>{{i.cedula}}</td>
+			    <td><a href="{% url "ventaclientes" cedula=i.cedula %}" name="cedula" >{{i.cedula}}</a></td>
                             <td>{{i.nombre}}</td>
                             <td>{{i.email}}</td>
                             <td>{{i.direccion}}</td>
