@@ -19,4 +19,9 @@ def ventaclientes(request, cedula):
     response1 = requests.get(f"http://localhost:8002/api/clientes/{cedula}/")
     if response1.status_code == 200:
         data2 = response1.json()
-    return render(request, "reportes/ventasporcli.html", {'data' : data, 'datac' : data2})
+    listaventa = []
+    for i in data:
+        listaventa.append(i['valor_venta'])
+    suma = sum(listaventa)
+    return render(request, "reportes/ventasporcli.html", {'data' : data, 'datac' : data2, 'total' : suma})
+

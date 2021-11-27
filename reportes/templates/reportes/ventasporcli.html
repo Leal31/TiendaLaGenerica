@@ -1,3 +1,4 @@
+{% load mathfilters %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -136,8 +137,10 @@
                     <div class="row">
                         <div class="col-md-6 offset-md-6">
                             <label>Total Ventas $</label> 
-                            <input type="text" id="totalvent" name="totalventas" />
+			    
                         </div>
+
+			<input type="text" id="totalvent" name="totalventas" value = "{{total}}" />
                     </div>
                   </div>
             </div>
