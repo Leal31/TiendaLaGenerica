@@ -34,6 +34,7 @@ def importar(request):
             BASE_DIR = Path(__file__).resolve().parent.parent
             direccion = f"{BASE_DIR}/productos/static/{request.POST.get('fileupload')}"
             root, extension = os.path.splitext(direccion)
+            listapro = []
             if extension == '.csv':
                 with open(direccion, "r") as archivo:
 
@@ -49,9 +50,9 @@ def importar(request):
                             'ivacompra' : float(lista[4]),
                             'precio_venta' : float(lista[5])
                         }
-                        response = requests.post('http://localhost:8001/api/productos/', data=productos)
-                mensaje = "El archivo fue subido correctamente"
-                return render(request, 'productos/Productos.html', {'mensaje' : mensaje})
+                        listapro.append(productos)
+                        mensaje = "El archivo fue subido con exito"
+                return render(request, 'productos/Productos.html', {'mensaje' : mensaje, 'csv' : listapro})
             elif extension != '.csv' and extension != '':
                 mensaje = "El archivo no tiene una extension valida"
                 return render(request, 'productos/Productos.html', {'mensaje' : mensaje})
