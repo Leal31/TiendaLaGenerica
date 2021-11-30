@@ -88,10 +88,16 @@ DATABASES = {
         'NAME' : 'login',
         'HOST' : '127.0.0.1',
         'PORT' : '27017'
-    },
-
+    },'db_productos' : {
+        'ENGINE' : 'djongo',
+        'NAME' : 'db_productos',
+        'HOST' : '127.0.0.1',
+        'PORT' : '27017'
+        },
 
 }
+DATABASE_ROUTERS = ['productos.routers.ProductoRouter',]
+
 
 
 
