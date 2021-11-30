@@ -50,9 +50,9 @@ def importar(request):
                             'ivacompra' : float(lista[4]),
                             'precio_venta' : float(lista[5])
                         }
-                        listapro.append(productos)
+                        response = requests.post("http://localhost:8001/api/productos/",json=productos, headers={"Content-type" : "application/json", "Vary" : "Accept"})
                         mensaje = "El archivo fue subido con exito"
-                return render(request, 'productos/Productos.html', {'mensaje' : mensaje, 'csv' : listapro})
+                return render(request, 'productos/Productos.html', {'mensaje' : mensaje})
             elif extension != '.csv' and extension != '':
                 mensaje = "El archivo no tiene una extension valida"
                 return render(request, 'productos/Productos.html', {'mensaje' : mensaje})

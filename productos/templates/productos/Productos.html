@@ -10,44 +10,7 @@
     </head>
     <body>
       <script>
-        {% if mensaje != None and csv %}
-	    alert("{{mensaje}}");
-	let lista = [];
-	let productos = {};
-	{% for i in csv %}
-	productos= {codigo_producto : "{{i.codigo_producto}}", nombre_producto : "{{i.nombre_producto}}", nitproveedor : "{{i.nitproveedor}}", precio_compra : "{{i.precio_compra}}", ivacompra : "{{i.ivacompra}}", precio_venta : "{{i.precio_venta}}"};
-	lista.push(productos);
-	{% endfor %}
-	let http = new XMLHttpRequest();
-	for (let i = 0;i < lista.length;i++) {
-		  let codigo_producto = lista[i].codigo_producto;
-		  let nombre_producto = lista[i].nombre_producto;
-		  let nitproveedor = lista[i].nitproveedor;
-		  let precio_compra = lista[i].precio_compra;
-		  let ivacompra = lista[i].ivacompra;
-		  let precio_venta = lista[i].precio_venta;
-		  const producto = {
-		      codigo_producto : codigo_producto,
-		      nombre_producto : nombre_producto,
-		      nitproveedor : nitproveedor,
-		      precio_compra : precio_compra,
-		      ivacompra : ivacompra,
-		      precio_venta : precio_venta
-			  };
-		  let options = {
-		      mode : "cors",
-		      method : "POST",
-		      body : JSON.stringify(producto),
-		      headers : {
-			    "Content-type" : "application/json",
-			    'Access-Control-Allow-Origin': '*'
-			      }
-			  }
-		  fetch("http://localhost:8001/api/productos/", options)
-		    .then(res => res.json())
-		    .then(result => console.log(result));
-		}
-	{% elif mensaje != None %}
+	{% if mensaje != None %}
 	  alert("{{mensaje}}");
         {% endif %}
       </script>
@@ -132,9 +95,9 @@
                 <span class="text">Menu</span>
             </div>
             <div id="productos">
-                <form method="POST" >
-                    <div class="ctnp">
+                <form method="POST">
                         {% csrf_token %}
+                    <div class="ctnp">
                         <table>
                             <tr class="examinar">
                                 <td><label for="archivo">Nombre del Archivo</label></td>
