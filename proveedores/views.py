@@ -53,8 +53,9 @@ def actualizar(request):
     return render(request, 'proveedores/proveedores.html', {'data' : data, 'mensaje' : mensaje})
 
 def borrar(request):
+    global data 
     nit = int(request.POST.get('nit_pro'))
-    response = requests.delete(f'http://localhost:8003/api/proveedores/{nit}/')
+    response = requests.get(f'http://localhost:8003/api/proveedores/{nit}/')
     if response.status_code == 200:
         response = requests.delete(f'http://localhost:8003/api/proveedores/{nit}/')
         data = None
