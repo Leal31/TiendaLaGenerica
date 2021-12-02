@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'mathfilters',
     'rest_framework',
     'reportes.apps.ReportesConfig',
+    'consolidado.apps.ConsolidadoConfig',
 ]
 
 MIDDLEWARE = [
