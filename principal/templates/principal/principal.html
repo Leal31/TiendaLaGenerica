@@ -63,21 +63,12 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="bx bxs-book-content"></i>
-                        <span class="link_name">Reportes</span>
-                    </a>
-                    <ul class="sub-menu blank">
-                        <li><a class="link_name" href="#">Reportes</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="Empleado.html" target="myFrame">
+		  <a href="{% url "consolidado" %}">
                         <i class="bx bx-world"></i>
                         <span class="link_name">Consolidacion</span>
                     </a>
                     <ul class="sub-menu blank">
-                        <li><a class="link_name" href="Empleado.html" target="myFrame">Consolidacion</a></li>
+		      <li><a class="link_name" href="{% url "consolidado" %}">Consolidacion</a></li>
                     </ul>
                 </li>
                 <li>
@@ -100,7 +91,6 @@
                 <span class="text">Menu</span>
             </div>
             <div class="m-4" style="height: 800px;">
-                <iframe name="myFrame" style="height: 100%; width: 100%; border: none;"></iframe>
             </div>
         </section>
         <script>
