@@ -109,10 +109,12 @@
                           </tr>
                         </thead>
                         <tbody>
+			  {% for i in consolidados%}
                           <tr>
-                            <th>...</th>
-                            <td>...</td>
+			    <th>{{i.ciudad}}</th>
+			    <td>{{i.total_ventas}}</td>
                           </tr>
+			  {% endfor%}
                           <tr>
                             <th>...</th>
                             <td>...</td>

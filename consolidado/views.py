@@ -12,4 +12,8 @@ def consolidado(request):
     totalventa= sum(sumaventa)
     dataconsolidado= {'ciudad':'bogota','total_ventas':totalventa}
     responseconsolidado= requests.post('http://localhost:8005/api/consolidado/', data=dataconsolidado)
-    return render(request, "consolidado/Consolidacion.html")
+    if responseconsolidado.status_code == 201:
+        responseget = requests.get("http://localhost:8005/api/consolidado/")
+        datacon = responseget.json()
+
+    return render(request, "consolidado/Consolidacion.html", {'consolidados' : datacon})
