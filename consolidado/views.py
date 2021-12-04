@@ -9,7 +9,7 @@ def consolidado(request):
         datacon = responseget.json()
         for i in datacon:
             listaventa.append(i['total_ventas'])
-            suma = sum(listaventa)
+        suma = sum(listaventa)
     else:
         datacon = None
 
